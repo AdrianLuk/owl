@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { fetchTeams } from './components/api-handler';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        Hello World!
+
       </div>
     );
   }
