@@ -6,6 +6,7 @@ class Home extends Component {
         return (
             <div>
                 <MainHeader />
+                <h1>Home Page</h1>
             </div>
         );
     }
