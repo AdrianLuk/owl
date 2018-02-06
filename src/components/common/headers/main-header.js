@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-
+import './main-header.css';
 export default class MainHeader extends Component {
     render() {
         return (
@@ -8,7 +8,7 @@ export default class MainHeader extends Component {
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="#brand">React-Bootstrap</a>
+                            <a href="#brand">Overwatch League</a>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
@@ -29,7 +29,7 @@ export default class MainHeader extends Component {
                             <NavItem eventKey={2} href="#">Link Right</NavItem>
                         </Nav>
                     </Navbar.Collapse>
-                </Navbar>;
+                </Navbar>
             </div>
         );
     }
