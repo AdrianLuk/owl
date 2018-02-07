@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
 import './main-header.css';
 export default class MainHeader extends Component {
     render() {
@@ -8,7 +9,7 @@ export default class MainHeader extends Component {
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="#brand">Overwatch League</a>
+                            <a href="#brand">React-Bootstrap</a>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
@@ -25,8 +26,12 @@ export default class MainHeader extends Component {
                             </NavDropdown>
                         </Nav>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#">Link Right</NavItem>
-                            <NavItem eventKey={2} href="#">Link Right</NavItem>
+                            <NavItem eventKey={1} href="#">
+                                Link Right
+      </NavItem>
+                            <NavItem eventKey={2} href="#">
+                                Link Right
+      </NavItem>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
