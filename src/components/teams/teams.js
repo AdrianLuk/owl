@@ -5,6 +5,7 @@ class Teams extends Component {
         return (
             <div>
                 <h1>Teams Page</h1>
+                <h2>Hi</h2>
             </div>
         );
     }
