@@ -51,15 +51,6 @@ export default class MainHeader extends Component {
                             <LinkContainer className="nav-link" to="/schedule">
                                 <NavLink>Schedule</NavLink>
                             </LinkContainer>
-                            <UncontrolledDropdown nav>
-                                <DropdownToggle nav caret>Options</DropdownToggle>
-                                <DropdownMenu >
-                                    <DropdownItem>Option 1</DropdownItem>
-                                    <DropdownItem>Option 2</DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>Option 3</DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
                         </Nav>
                     </Collapse>
                 </Navbar>
