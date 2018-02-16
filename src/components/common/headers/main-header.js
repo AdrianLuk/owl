@@ -41,15 +41,27 @@ export default class MainHeader extends Component {
                     </LinkContainer>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <LinkContainer className="nav-link" to="/teams">
+                        <Nav navbar>
+                            <LinkContainer to="/teams">
                                 <NavLink>Teams</NavLink>
                             </LinkContainer>
-                            <LinkContainer className="nav-link" to="/players">
+                            <LinkContainer to="/players">
                                 <NavLink>Players</NavLink>
                             </LinkContainer>
-                            <LinkContainer className="nav-link" to="/schedule">
+                            <LinkContainer to="/schedule">
                                 <NavLink>Schedule</NavLink>
+                            </LinkContainer>
+                            <LinkContainer to="/standings">
+                                <NavLink>Standings</NavLink>
+                            </LinkContainer>
+                            <LinkContainer to="/stats">
+                                <NavLink disabled>Stats</NavLink>
+                            </LinkContainer>
+                            <LinkContainer to="/videos">
+                                <NavLink>Videos</NavLink>
+                            </LinkContainer>
+                            <LinkContainer to="/news">
+                                <NavLink>News</NavLink>
                             </LinkContainer>
                         </Nav>
                     </Collapse>

@@ -7,7 +7,6 @@ class Teams extends Component {
             <div>
                 <MainHeader />
                 <h1>Teams Page</h1>
-                <h2>Hi</h2>
             </div>
         );
     }
