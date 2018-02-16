@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 // import { Link } from 'react-router-dom';
 
 import {
@@ -36,23 +36,28 @@ export default class MainHeader extends Component {
         return (
             <Container>
                 <Navbar color="dark" dark expand="lg">
-                    <NavbarBrand href="/">Overwatch League</NavbarBrand>
+                    <LinkContainer to="/">
+                        <NavbarBrand>Overwatch League</NavbarBrand>
+                    </LinkContainer>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="#">Components</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#">Github</NavLink>
-                            </NavItem>
+                            <LinkContainer className="nav-link" to="/teams">
+                                <NavLink>Teams</NavLink>
+                            </LinkContainer>
+                            <LinkContainer className="nav-link" to="/players">
+                                <NavLink>Players</NavLink>
+                            </LinkContainer>
+                            <LinkContainer className="nav-link" to="/schedule">
+                                <NavLink>Schedule</NavLink>
+                            </LinkContainer>
                             <UncontrolledDropdown nav>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu >
                                     <DropdownItem>Option 1</DropdownItem>
                                     <DropdownItem>Option 2</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem>Reset</DropdownItem>
+                                    <DropdownItem>Option 3</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
