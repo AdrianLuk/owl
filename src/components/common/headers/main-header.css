@@ -8,10 +8,9 @@ h1 {
 .navbar {
   padding: 0 1rem;
   border: 1px solid black; }
-
-@media screen and (max-width: 991px) {
-  .navbar {
-    padding: 1rem; } }
+  @media screen and (max-width: 991px) {
+    .navbar {
+      padding: 1rem; } }
 
 nav a {
   text-transform: uppercase; }
