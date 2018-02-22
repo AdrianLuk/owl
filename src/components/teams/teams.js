@@ -5,6 +5,8 @@ import {fetchTeams} from '../../actions';
 import MainHeader from '../common/headers/main-header';
 import {Container, ListGroup, ListGroupItem} from 'reactstrap';
 
+import './teams.css';
+
 class Teams extends Component {
     componentDidMount() {
         this
@@ -16,7 +18,12 @@ class Teams extends Component {
         return _.map(this.props.teams, team => {
             return (
                 <ListGroupItem key={team.competitor.id}>
-                    {team.competitor.name}
+                    <span className="team-logo"><img
+                        src={team.competitor.logo}
+                        width="50"
+                        height="50"
+                        alt={team.competitor.name}/></span>
+                    <span className="team-name">{team.competitor.name}</span>
                 </ListGroupItem>
             );
         });
