@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import { fetchTeams } from './components/api-handler';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "../components/home/home";
 import Players from '../components/players/players';
 import Schedule from '../components/schedule/schedule';
@@ -16,14 +16,15 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/teams' component={Teams} />
-          <Route path='/players' component={Players} />
-          <Route path='/schedule' component={Schedule} />
-          <Route path='/standings' component={Standings} />
-          <Route path='/videos' component={Videos} />
-          <Route path='/news' component={News} />
-          <Route path='*' component={NotFound} />
+
+          <Route path='/teams' component={Teams}/>
+          <Route path='/players' component={Players}/>
+          <Route path='/schedule' component={Schedule}/>
+          <Route path='/standings' component={Standings}/>
+          <Route path='/videos' component={Videos}/>
+          <Route path='/news' component={News}/>
+          <Route path='/' component={Home}/>
+          <Route path='*' component={NotFound}/>
         </Switch>
       </Router>
     );

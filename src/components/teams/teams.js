@@ -26,8 +26,8 @@ class Teams extends Component {
         return (
             <div>
                 <MainHeader/>
+                <h1>Teams</h1>
                 <Container>
-                    <h1>Teams</h1>
                     <ListGroup>
                         {this.renderTeams()}
                     </ListGroup>
