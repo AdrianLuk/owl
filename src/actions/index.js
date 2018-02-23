@@ -6,5 +6,6 @@ const apiUrl = 'https://api.overwatchleague.com';
 
 export function fetchTeams() {
     const request = axios.get(`${apiUrl}/teams`);
-    return {type: FETCH_TEAMS, payload: request};
+    return { type: FETCH_TEAMS, payload: request };
 }
+

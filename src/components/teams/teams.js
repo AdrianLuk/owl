@@ -1,30 +1,30 @@
 import _ from 'lodash';
-import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {fetchTeams} from '../../actions';
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { fetchTeams } from '../../actions';
 import MainHeader from '../common/headers/main-header';
-import {Container, ListGroup, ListGroupItem} from 'reactstrap';
+import { Container, Card, CardImg, CardTitle, CardText, CardGroup, CardBody, CardLink } from 'reactstrap';
 
 import './teams.css';
 
 class Teams extends Component {
     componentDidMount() {
-        this
-            .props
-            .fetchTeams();
+        this.props.fetchTeams();
     }
 
     renderTeams() {
         return _.map(this.props.teams, team => {
+            console.log(team)
             return (
-                <ListGroupItem key={team.competitor.id}>
-                    <span className="team-logo"><img
-                        src={team.competitor.logo}
-                        width="50"
-                        height="50"
-                        alt={team.competitor.name}/></span>
-                    <span className="team-name">{team.competitor.name}</span>
-                </ListGroupItem>
+                <div className="CardGroup-card" key={team.competitor.id}>
+                    <Card className="card-team">
+                        <CardImg top width="100%" src={team.competitor.icon} />
+                        <CardBody>
+                            <CardTitle className="font-weight-bold">{team.competitor.name}</CardTitle>
+                            <CardText>{team.competitor.homeLocation}</CardText>
+                        </CardBody>
+                    </Card>
+                </div>
             );
         });
     }
@@ -32,12 +32,12 @@ class Teams extends Component {
     render() {
         return (
             <div>
-                <MainHeader/>
+                <MainHeader />
                 <h1>Teams</h1>
                 <Container>
-                    <ListGroup>
+                    <CardGroup>
                         {this.renderTeams()}
-                    </ListGroup>
+                    </CardGroup>
                 </Container>
             </div>
         );
@@ -45,7 +45,7 @@ class Teams extends Component {
 }
 
 function mapStateToProps(state) {
-    return {teams: state.teams};
+    return { teams: state.teams };
 }
 
-export default connect(mapStateToProps, {fetchTeams})(Teams);
+export default connect(mapStateToProps, { fetchTeams })(Teams);

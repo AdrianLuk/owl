@@ -1,7 +1,24 @@
-.list-group-item{
-    display: flex;
-    align-items: center;
-    span{
-        margin: 0 20px;
+
+
+.card-group{
+    @media(min-width:992px){
+        margin: 0 -12px;
     }
+.CardGroup-card{
+    flex: 1 0 auto;
+    padding: 12px 8px;
+    border: none;
+    text-align: center;
+    @media (min-width: 768px){
+        width: 33.33333333%;
+    }
+     @media (min-width: 992px){
+        width: 25%;
+    }
+    .card-team{
+        background-color: rgba(51,51,51,.06);
+        text-align: center;
+        height: 100%;
+    }
+}
 }
