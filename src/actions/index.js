@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const FETCH_TEAMS = 'fetch_teams';
+import { FETCH_TEAMS } from './types';
 
 const apiUrl = 'https://api.overwatchleague.com';
 

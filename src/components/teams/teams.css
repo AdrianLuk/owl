@@ -1,34 +1,28 @@
 .card-group {
   display: flex;
   flex-flow: row wrap; }
-
-@media (min-width: 992px) {
-  .card-group {
-    margin: 0 -12px;
-    text-align: center; } }
-
-.card-group .CardGroup-card {
-  flex: 0 0 auto;
-  padding: 12px 8px;
-  border: none;
-  text-align: center;
-  width: 50%; }
-
-@media (min-width: 480px) {
+  @media (min-width: 992px) {
+    .card-group {
+      margin: 0 -12px;
+      text-align: center; } }
   .card-group .CardGroup-card {
-    width: 50%; } }
-
-@media (min-width: 768px) {
-  .card-group .CardGroup-card {
-    width: 33.33333333%; } }
-
-@media (min-width: 992px) {
-  .card-group .CardGroup-card {
-    width: 25%; } }
-
-.card-group .CardGroup-card .card-team {
-  background-color: rgba(51, 51, 51, 0.06);
-  height: 100%; }
+    flex: 0 0 auto;
+    padding: 12px 8px;
+    border: none;
+    text-align: center;
+    width: 50%; }
+    @media (min-width: 480px) {
+      .card-group .CardGroup-card {
+        width: 50%; } }
+    @media (min-width: 768px) {
+      .card-group .CardGroup-card {
+        width: 33.33333333%; } }
+    @media (min-width: 992px) {
+      .card-group .CardGroup-card {
+        width: 25%; } }
+    .card-group .CardGroup-card .card-team {
+      background-color: rgba(51, 51, 51, 0.06);
+      height: 100%; }
 
 .card-link {
   cursor: pointer;
