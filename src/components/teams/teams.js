@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchTeams, selectTeam } from '../../actions';
 import MainHeader from '../common/headers/main-header';
+import CollapsePanel from './collapse-panel';
 import { bindActionCreators } from 'redux';
 import {
     Collapse,
@@ -40,11 +41,12 @@ class Teams extends Component {
         this.setState({
             collapse: !this.state.collapse
         });
+        // this.props.selectTeam();
     }
 
     renderTeams() {
         return _.map(this.props.teams, team => {
-            console.log(team)
+            // console.log(team.competitor)
             return (
                 <div className="CardGroup-card" key={team.competitor.id}>
                     <Card className="card-team">
@@ -54,7 +56,9 @@ class Teams extends Component {
                             <CardText>{team.competitor.homeLocation}</CardText>
                         </CardBody>
                         <CardLink
+
                             onClick={this.toggle}
+                            // onClick={() => this.props.selectTeam(team)}
                             className="card-button card-link--withUnderlineAnimation">View Roster</CardLink>
                     </Card>
                     <Collapse isOpen={this.state.collapse}>
@@ -76,7 +80,7 @@ class Teams extends Component {
 }
 
 function mapStateToProps(state) {
-    return { teams: state.teams };
+    return { teams: state.teams, activeTeam: state.activeTeam };
 }
 
 // Anything returned from here will end up as props
@@ -87,4 +91,6 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ selectTeam: selectTeam, fetchTeams: fetchTeams }, dispatch)
 }
 
+// Promoting Teams from component to a container - it needs to know about the new dispatch methods.
+// Make it available as a prop
 export default connect(mapStateToProps, mapDispatchToProps)(Teams);

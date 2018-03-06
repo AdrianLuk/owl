@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_TEAMS } from './types';
+import { FETCH_TEAMS, TEAM_SELECTED } from './types';
 
 const apiUrl = 'https://api.overwatchleague.com';
 
@@ -9,6 +9,10 @@ export function fetchTeams() {
     return { type: FETCH_TEAMS, payload: request };
 }
 
-export function selectTeam(team) {
-    console.log('A team has been selected:', team.name);
+export function selectTeam(activeteam) {
+    return {
+        type: TEAM_SELECTED,
+        payload: activeteam
+    };
+    // console.log(activeteam.competitor.name)
 }
