@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { Collapse } from 'reactstrap';
+// import { Collapse } from 'reactstrap';
 import { connect } from 'react-redux';
 
 
+
 class CollapsePanel extends Component {
-    componentDidMount() {
-        this.props.selectTeam();
-    }
+    // componentDidMount() {
+    //     this.props.selectTeam();
+    // }
 
 
     render() {
+        // console.log(this.props.activeTeam)
         return (
             <div>
-                <h2>{this.props.team.name}</h2>
-                console.log(hi)
+                <h2>{this.props.name}</h2>
             </div>
         );
     }

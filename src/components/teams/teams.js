@@ -46,7 +46,7 @@ class Teams extends Component {
 
     renderTeams() {
         return _.map(this.props.teams, team => {
-            // console.log(team.competitor)
+            console.log(team.competitor)
             return (
                 <div className="CardGroup-card" key={team.competitor.id}>
                     <Card className="card-team">
