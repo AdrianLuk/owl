@@ -1,10 +1,10 @@
-import _ from 'lodash';
-import React, { Component } from 'react';
+import _ from "lodash";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchTeams, selectTeam } from '../../actions';
-import MainHeader from '../common/headers/main-header';
-import CollapsePanel from './collapse-panel';
-import { bindActionCreators } from 'redux';
+import { fetchTeams, selectTeam } from "../../actions";
+import MainHeader from "../common/headers/main-header";
+import CollapsePanel from "./collapse-panel";
+import { bindActionCreators } from "redux";
 import {
     Collapse,
     Container,
@@ -15,26 +15,22 @@ import {
     CardGroup,
     CardBody,
     CardLink
-} from 'reactstrap';
+} from "reactstrap";
 // import { LinkContainer } from 'react-router-bootstrap';
 
-import './teams.css';
+import "./teams.css";
 
 class Teams extends Component {
     constructor(props) {
         super(props);
-        this.toggle = this
-            .toggle
-            .bind(this);
+        this.toggle = this.toggle.bind(this);
         this.state = {
             collapse: false
         };
     }
 
     componentDidMount() {
-        this
-            .props
-            .fetchTeams();
+        this.props.fetchTeams();
     }
 
     toggle() {
@@ -46,23 +42,29 @@ class Teams extends Component {
 
     renderTeams() {
         return _.map(this.props.teams, team => {
-            console.log(team.competitor)
+            console.log(team.competitor);
             return (
                 <div className="CardGroup-card" key={team.competitor.id}>
                     <Card className="card-team">
                         <CardImg top width="100%" src={team.competitor.icon} />
                         <CardBody>
-                            <CardTitle className="font-weight-bold">{team.competitor.name}</CardTitle>
+                            <CardTitle className="font-weight-bold">
+                                {team.competitor.name}
+                            </CardTitle>
                             <CardText>{team.competitor.homeLocation}</CardText>
                         </CardBody>
                         <CardLink
-
                             onClick={this.toggle}
                             // onClick={() => this.props.selectTeam(team)}
-                            className="card-button card-link--withUnderlineAnimation">View Roster</CardLink>
+                            className="card-button card-link--withUnderlineAnimation">
+                            View Roster
+                        </CardLink>
                     </Card>
                     <Collapse isOpen={this.state.collapse}>
-                        <div>{team.competitor.name} {team.competitor.players[0].player.name}</div>
+                        <div>
+                            {team.competitor.name}{" "}
+                            {team.competitor.players[0].player.name}
+                        </div>
                     </Collapse>
                 </div>
             );
@@ -72,10 +74,13 @@ class Teams extends Component {
     render() {
         return (
             <div>
-                <MainHeader /> <h1>Teams</h1> <Container> <CardGroup>
-                    {this.renderTeams()}
-                </CardGroup> </Container>
-            </div >);
+                <MainHeader /> <h1>Teams</h1>{" "}
+                <Container>
+                    {" "}
+                    <CardGroup>{this.renderTeams()}</CardGroup>{" "}
+                </Container>
+            </div>
+        );
     }
 }
 
@@ -88,7 +93,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     // Whenever selectBook or fetchTeams is called, the result should be passed to all of our reducers
-    return bindActionCreators({ selectTeam: selectTeam, fetchTeams: fetchTeams }, dispatch)
+    return bindActionCreators(
+        { selectTeam: selectTeam, fetchTeams: fetchTeams },
+        dispatch
+    );
 }
 
 // Promoting Teams from component to a container - it needs to know about the new dispatch methods.

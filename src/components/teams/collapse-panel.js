@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import { Collapse } from 'reactstrap';
-import { connect } from 'react-redux';
-
-
+import { connect } from "react-redux";
 
 class CollapsePanel extends Component {
     // componentDidMount() {
     //     this.props.selectTeam();
     // }
-
 
     render() {
         // console.log(this.props.activeTeam)

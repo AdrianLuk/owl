@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import TeamsReducer from './teams-reducer';
-import ActiveTeam from './active-team-reducer';
+import TeamsReducer from "./teams-reducer";
+import ActiveTeam from "./active-team-reducer";
 
 const rootReducer = combineReducers({
     teams: TeamsReducer,

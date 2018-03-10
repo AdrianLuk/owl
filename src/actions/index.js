@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { FETCH_TEAMS, TEAM_SELECTED } from './types';
+import { FETCH_TEAMS, TEAM_SELECTED } from "./types";
 
-const apiUrl = 'https://api.overwatchleague.com';
+const apiUrl = "https://api.overwatchleague.com";
 
 export function fetchTeams() {
     const request = axios.get(`${apiUrl}/teams`);
