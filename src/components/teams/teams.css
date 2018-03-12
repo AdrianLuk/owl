@@ -37,18 +37,22 @@
   -ms-flex-pack: center;
   justify-content: center;
   max-width: none;
-  transition: background-color .3s,color .3s;
-  padding: 1.075em 1.5em .925em;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 1.075em 1.5em 0.925em;
   position: relative; }
 
 @media (hover: none) {
-  .card-link--withUnderlineAnimation:not([disabled])::after, .card-link--withUnderlineAnimation:not([disabled])::before, .card-link--withUnderlineAnimation:not([disabled])::after, .card-link--withUnderlineAnimation:not([disabled])::before {
+  .card-link--withUnderlineAnimation:not([disabled])::after,
+  .card-link--withUnderlineAnimation:not([disabled])::before,
+  .card-link--withUnderlineAnimation:not([disabled])::after,
+  .card-link--withUnderlineAnimation:not([disabled])::before {
     display: none; } }
 
-.card-link--withUnderlineAnimation:not([disabled])::after, .card-link--withUnderlineAnimation:not([disabled])::after {
+.card-link--withUnderlineAnimation:not([disabled])::after,
+.card-link--withUnderlineAnimation:not([disabled])::after {
   background-color: #ff8900;
   bottom: 0;
-  content: '';
+  content: "";
   height: 4px;
   left: 0;
   position: absolute;
@@ -57,5 +61,6 @@
   width: 100%;
   z-index: 10; }
 
-.card-link--withUnderlineAnimation:not([disabled]):hover::after, .card-link--withUnderlineAnimation:not([disabled]):hover::after {
+.card-link--withUnderlineAnimation:not([disabled]):hover::after,
+.card-link--withUnderlineAnimation:not([disabled]):hover::after {
   transform: translateX(0); }

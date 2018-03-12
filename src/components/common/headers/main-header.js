@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
+import React, { Component } from "react";
+import { LinkContainer } from "react-router-bootstrap";
 // import { Link } from 'react-router-dom';
 
 import {
@@ -10,8 +10,8 @@ import {
     NavbarBrand,
     Nav,
     NavLink
-} from 'reactstrap';
-import './main-header.css';
+} from "reactstrap";
+import "./main-header.css";
 
 export default class MainHeader extends Component {
     constructor(props) {
