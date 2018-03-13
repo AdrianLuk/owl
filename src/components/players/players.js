@@ -7,6 +7,7 @@ class Players extends Component {
             <div>
                 <MainHeader />
                 <h1> Players page</h1>
+                blah
             </div>
         );
     }
