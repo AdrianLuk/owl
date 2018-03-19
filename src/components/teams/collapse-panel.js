@@ -24,22 +24,23 @@ import React, { Component } from "react";
 // }
 
 // export default connect(mapStateToProps)(CollapsePanel);
-import {
-    Collapse,
-    Container,
-    Card,
-    CardImg,
-    CardTitle,
-    CardText,
-    CardGroup,
-    CardBody,
-    CardLink
-} from "reactstrap";
+// import {
+//     Collapse,
+//     Container,
+//     Card,
+//     CardImg,
+//     CardTitle,
+//     CardText,
+//     CardGroup,
+//     CardBody,
+//     CardLink
+// } from "reactstrap";
 
 const CollapsePanel = (props) => {
+    console.log(props)
     return (
         <div>
-            {props.team.name}
+            <h2>{props.name}</h2>
         </div>
     );
 };

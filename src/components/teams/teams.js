@@ -25,24 +25,32 @@ class Teams extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: false
+            collapse: false,
+            selectedTeam: {}
         };
     }
 
     componentDidMount() {
         this.props.fetchTeams();
+        console.log(this.state);
     }
 
-    toggle() {
+    toggle(e) {
         this.setState({
-            collapse: !this.state.collapse
+            collapse: !this.state.collapse,
+            selectedTeam: this.props.teams[e.target.dataset.selected]
         });
+
+        // console.log(this.props.teams);
+        // console.log(e.target.dataset.selected);
+        // console.log(this.state.selectedTeam.competitor)
+        console.log(this.state);
         // this.props.selectTeam();
     }
 
     renderTeams() {
-        return _.map(this.props.teams, team => {
-            console.log(team.competitor);
+        return _.map(this.props.teams, (team, index) => {
+            // console.log(team.competitor);
             return (
                 <div className="CardGroup-card" key={team.competitor.id}>
                     <Card className="card-team">
@@ -56,11 +64,11 @@ class Teams extends Component {
                         <CardLink
                             onClick={this.toggle}
                             // onClick={() => this.props.selectTeam(team)}
-                            className="card-button card-link--withUnderlineAnimation">
+                            className="card-button card-link--withUnderlineAnimation" data-selected={index}>
                             View Roster
                         </CardLink>
                         <Collapse isOpen={this.state.collapse}>
-                            <CollapsePanel team={team.competitor} />
+                            <CollapsePanel team={this.state.selectedTeam.competitor} />
                         </Collapse>
                     </Card>
 
@@ -83,7 +91,7 @@ class Teams extends Component {
 }
 
 function mapStateToProps(state) {
-    return { teams: state.teams, activeTeam: state.activeTeam };
+    return { teams: state.teams, selectedTeam: state.selectedTeam };
 }
 
 // Anything returned from here will end up as props
