@@ -59,13 +59,11 @@ class Teams extends Component {
                             className="card-button card-link--withUnderlineAnimation">
                             View Roster
                         </CardLink>
+                        <Collapse isOpen={this.state.collapse}>
+                            <CollapsePanel team={team.competitor} />
+                        </Collapse>
                     </Card>
-                    <Collapse isOpen={this.state.collapse}>
-                        <div>
-                            {team.competitor.name}{" "}
-                            {team.competitor.players[0].player.name}
-                        </div>
-                    </Collapse>
+
                 </div>
             );
         });
