@@ -33,6 +33,8 @@ class Teams extends Component {
     componentDidMount() {
         this.props.fetchTeams();
         console.log(this.state);
+        console.log(this.props.teams);
+
     }
 
     toggle(e) {
@@ -44,7 +46,7 @@ class Teams extends Component {
         // console.log(this.props.teams);
         // console.log(e.target.dataset.selected);
         // console.log(this.state.selectedTeam.competitor)
-        console.log(this.state);
+        console.log(this.state.selectedTeam);
         // this.props.selectTeam();
     }
 
