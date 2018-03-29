@@ -42,7 +42,6 @@ class Teams extends Component {
             collapse: !this.state.collapse,
             selectedTeam: this.props.teams[e.target.dataset.selected]
         });
-
         // console.log(this.props.teams);
         // console.log(e.target.dataset.selected);
         // console.log(this.state.selectedTeam.competitor)
