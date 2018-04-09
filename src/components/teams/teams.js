@@ -4,17 +4,18 @@ import { connect } from "react-redux";
 import { fetchTeams, selectTeam } from "../../actions";
 import MainHeader from "../common/headers/main-header";
 import CollapsePanel from "./collapse-panel";
+import TeamList from "./team-list";
 import { bindActionCreators } from "redux";
 import {
-    Collapse,
-    Container,
-    Card,
-    CardImg,
-    CardTitle,
-    CardText,
-    CardGroup,
-    CardBody,
-    CardLink
+    // Collapse,
+    Container
+    // Card,
+    // CardImg,
+    // CardTitle,
+    // CardText,
+    // CardGroup,
+    // CardBody,
+    // CardLink
 } from "reactstrap";
 // import { LinkContainer } from 'react-router-bootstrap';
 
@@ -25,66 +26,43 @@ class Teams extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: false,
-            selectedTeam: {}
+            collapse: true,
+            selectedTeam: null
         };
     }
 
     componentDidMount() {
         this.props.fetchTeams();
-        console.log(this.state);
-        console.log(this.props.teams);
-
-    }
-
-    toggle(e) {
-        this.setState({
-            collapse: !this.state.collapse,
-            selectedTeam: this.props.teams[e.target.dataset.selected]
-        });
+        // console.log(this.state);
         // console.log(this.props.teams);
-        // console.log(e.target.dataset.selected);
-        // console.log(this.state.selectedTeam.competitor)
-        console.log(this.state.selectedTeam);
-        // this.props.selectTeam();
     }
-
-    renderTeams() {
-        return _.map(this.props.teams, (team, index) => {
-            // console.log(team.competitor);
-            return (
-                <div className="CardGroup-card" key={team.competitor.id}>
-                    <Card className="card-team">
-                        <CardImg top width="100%" src={team.competitor.icon} />
-                        <CardBody>
-                            <CardTitle className="font-weight-bold">
-                                {team.competitor.name}
-                            </CardTitle>
-                            <CardText>{team.competitor.homeLocation}</CardText>
-                        </CardBody>
-                        <CardLink
-                            onClick={this.toggle}
-                            // onClick={() => this.props.selectTeam(team)}
-                            className="card-button card-link--withUnderlineAnimation" data-selected={index}>
-                            View Roster
-                        </CardLink>
-                        <Collapse isOpen={this.state.collapse}>
-                            <CollapsePanel team={this.state.selectedTeam.competitor} />
-                        </Collapse>
-                    </Card>
-
-                </div>
-            );
+    toggle() {
+        this.setState({
+            collapse: !this.state.collapse
+            // selectedTeam: this.props.teams[e.target.dataset.selected]
         });
+        //     // console.log(this.props.teams);
+        //     // console.log(e.target.dataset.selected);
+        //     // console.log(this.state.selectedTeam.competitor)
+        //     console.log(this.state.selectedTeam);
+        //     // this.props.selectTeam();
     }
-
     render() {
         return (
             <div>
-                <MainHeader /> <h1>Teams</h1>{" "}
+                <MainHeader />
+                <h1>Teams</h1>{" "}
                 <Container>
-                    {" "}
-                    <CardGroup>{this.renderTeams()}</CardGroup>{" "}
+                    <TeamList
+                        teams={this.props.teams}
+                        onClick={this.toggle}
+                        onTeamSelect={selectedTeam =>
+                            this.setState({
+                                selectedTeam: selectedTeam
+                                // collapse: !this.state.collapse
+                            })
+                        }
+                    />
                 </Container>
             </div>
         );
@@ -92,7 +70,11 @@ class Teams extends Component {
 }
 
 function mapStateToProps(state) {
-    return { teams: state.teams, selectedTeam: state.selectedTeam };
+    return {
+        teams: state.teams,
+        selectedTeam: state.selectedTeam,
+        collapse: state.collapse
+    };
 }
 
 // Anything returned from here will end up as props
@@ -101,7 +83,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     // Whenever selectBook or fetchTeams is called, the result should be passed to all of our reducers
     return bindActionCreators(
-        { selectTeam: selectTeam, fetchTeams: fetchTeams },
+        {
+            // selectTeam: selectTeam,
+            fetchTeams: fetchTeams
+        },
         dispatch
     );
 }

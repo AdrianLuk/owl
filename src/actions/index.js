@@ -23,6 +23,5 @@ export function fetchSchedule() {
         type: FETCH_SCHEDULE,
         payload: request
     };
-    console.log(request);
-
+    // console.log(request);
 }

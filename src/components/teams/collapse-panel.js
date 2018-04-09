@@ -36,8 +36,8 @@ import React, { Component } from "react";
 //     CardLink
 // } from "reactstrap";
 
-const CollapsePanel = (props) => {
-    console.log(props);
+const CollapsePanel = props => {
+    // console.log(props);
     return (
         <div>
             <h2>{props.name}</h2>
