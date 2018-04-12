@@ -34,7 +34,7 @@ const TeamListItem = ({ team, onTeamSelect }) => {
                     <CardText>{team.competitor.homeLocation}</CardText>
                 </CardBody>
                 <CardLink
-                    onClick={team => onTeamSelect(team)}
+                    onClick={() => onTeamSelect(team)}
                     // onClick={() => this.props.selectTeam(team)}
                     className="card-button card-link--withUnderlineAnimation">
                     View Roster
