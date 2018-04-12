@@ -26,7 +26,7 @@ class Teams extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: true,
+            collapse: false,
             selectedTeam: null
         };
     }
