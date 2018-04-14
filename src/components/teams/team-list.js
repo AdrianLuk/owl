@@ -12,7 +12,11 @@ const TeamList = props => {
             />
         );
     });
-    return <CardGroup>{teamItems}</CardGroup>;
+    return (
+        <div>
+            <CardGroup>{teamItems}</CardGroup>
+        </div>
+    );
 };
 
 export default TeamList;

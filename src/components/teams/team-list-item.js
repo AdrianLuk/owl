@@ -8,21 +8,11 @@ import {
     CardText,
     // CardGroup,
     CardBody,
-    CardLink
+    CardLink,
+    Modal
 } from "reactstrap";
 
 const TeamListItem = ({ team, onTeamSelect }) => {
-    //  toggle() {
-    //     this.setState({
-    //         collapse: !this.state.collapse,
-    //         // selectedTeam: this.props.teams[e.target.dataset.selected]
-    //     });
-    //     // console.log(this.props.teams);
-    //     // console.log(e.target.dataset.selected);
-    //     // console.log(this.state.selectedTeam.competitor)
-    //     console.log(this.state.selectedTeam);
-    //     // this.props.selectTeam();
-    // }
     return (
         <div className="CardGroup-card">
             <Card className="card-team">
@@ -39,9 +29,6 @@ const TeamListItem = ({ team, onTeamSelect }) => {
                     className="card-button card-link--withUnderlineAnimation">
                     View Roster
                 </CardLink>
-                <Collapse isOpen={team.collapse}>
-                    {team.competitor.name}
-                </Collapse>
             </Card>
         </div>
     );

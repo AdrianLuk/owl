@@ -3,19 +3,22 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTeams, selectTeam } from "../../actions";
 import MainHeader from "../common/headers/main-header";
-import CollapsePanel from "./collapse-panel";
 import TeamList from "./team-list";
 import { bindActionCreators } from "redux";
 import {
     // Collapse,
-    Container
+    Container,
     // Card,
     // CardImg,
     // CardTitle,
     // CardText,
     // CardGroup,
     // CardBody,
-    // CardLink
+    // CardLink,
+    Modal,
+    ModalBody,
+    ModalHeader,
+    ModalFooter
 } from "reactstrap";
 // import { LinkContainer } from 'react-router-bootstrap';
 
@@ -26,7 +29,7 @@ class Teams extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: false,
+            modal: false,
             selectedTeam: null
         };
     }
@@ -38,7 +41,7 @@ class Teams extends Component {
     }
     toggle() {
         this.setState({
-            collapse: !this.state.collapse
+            modal: !this.state.modal
             // selectedTeam: this.props.teams[e.target.dataset.selected]
         });
         //     // console.log(this.props.teams);
@@ -48,6 +51,26 @@ class Teams extends Component {
         //     // this.props.selectTeam();
     }
     render() {
+        if (!this.state.selectedTeam) {
+            return (
+                <div>
+                    <MainHeader />
+                    <h1>Teams</h1>{" "}
+                    <Container>
+                        <TeamList
+                            teams={this.props.teams}
+                            onClick={this.toggle}
+                            onTeamSelect={selectedTeam =>
+                                this.setState({
+                                    selectedTeam: selectedTeam,
+                                    modal: !this.state.modal
+                                })
+                            }
+                        />;
+                    </Container>
+                </div>
+            );
+        }
         return (
             <div>
                 <MainHeader />
@@ -58,11 +81,23 @@ class Teams extends Component {
                         onClick={this.toggle}
                         onTeamSelect={selectedTeam =>
                             this.setState({
-                                selectedTeam: selectedTeam
-                                // collapse: !this.state.collapse
+                                selectedTeam: selectedTeam,
+                                modal: !this.state.modal
                             })
                         }
                     />
+                    <Modal
+                        className="modal-dialog-centered"
+                        isOpen={this.state.modal}
+                        toggle={this.toggle}>
+                        {console.log(this.state.selectedTeam)}
+                        <ModalHeader>
+                            {this.state.selectedTeam.competitor.name}
+                        </ModalHeader>
+                        <ModalBody>
+                            {this.state.selectedTeam.competitor.id}
+                        </ModalBody>
+                    </Modal>
                 </Container>
             </div>
         );
@@ -73,7 +108,7 @@ function mapStateToProps(state) {
     return {
         teams: state.teams,
         selectedTeam: state.selectedTeam,
-        collapse: state.collapse
+        modal: state.modal
     };
 }
 
