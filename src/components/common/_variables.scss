@@ -1,2 +1,11 @@
-$main-font: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: "Industry-medium";
+    src: path("./fonts/industry-medium-webfont.woff2");
+}
+@font-face {
+    font-family: "Industry-bold";
+    src: path("./fonts/industry-bold-webfont.woff2");
+}
+$main-font: "Industry-medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$main-font-bold: "Industry-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $owl-orange: #ff8900;

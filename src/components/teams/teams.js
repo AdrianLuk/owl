@@ -21,13 +21,14 @@ import {
     ModalFooter
 } from "reactstrap";
 // import { LinkContainer } from 'react-router-bootstrap';
-
+import "../common/headers/main-header.css";
 import "./teams.css";
 
 class Teams extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
+        // this.renderTeam = this.renderTeam.bind(this);
         this.state = {
             modal: false,
             selectedTeam: null
@@ -50,6 +51,11 @@ class Teams extends Component {
         //     console.log(this.state.selectedTeam);
         //     // this.props.selectTeam();
     }
+
+    renderPlayers(playerData) {
+        return <p>{playerData.player.name}</p>;
+    }
+
     render() {
         if (!this.state.selectedTeam) {
             return (
@@ -92,10 +98,18 @@ class Teams extends Component {
                         toggle={this.toggle}>
                         {console.log(this.state.selectedTeam)}
                         <ModalHeader>
-                            {this.state.selectedTeam.competitor.name}
+                            <img
+                                className="modal-header--logo"
+                                src={this.state.selectedTeam.competitor.logo}
+                            />
+                            <span>
+                                {this.state.selectedTeam.competitor.name}
+                            </span>
                         </ModalHeader>
                         <ModalBody>
-                            {this.state.selectedTeam.competitor.id}
+                            {this.state.selectedTeam.competitor.players.map(
+                                this.renderPlayers
+                            )}
                         </ModalBody>
                     </Modal>
                 </Container>

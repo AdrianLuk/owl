@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Industry-medium";
+  src: path("./fonts/industry-medium-webfont.woff2"); }
+
+@font-face {
+  font-family: "Industry-bold";
+  src: path("./fonts/industry-bold-webfont.woff2"); }
+
 .card-group {
   display: flex;
   flex-flow: row wrap; }
@@ -28,7 +36,22 @@
 
 .card-group .CardGroup-card .card-team {
   background-color: rgba(51, 51, 51, 0.06);
-  height: 100%; }
+  height: 100%;
+  justify-content: flex-end; }
+
+.card-group .CardGroup-card .card-team .card-link {
+  flex-direction: column;
+  margin-left: 0;
+  border-top: none;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2); }
+
+.card-group .CardGroup-card .card-team .card-link .card-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Industry-bold", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.card-group .CardGroup-card .card-team .card-link .card-text {
+  font-weight: normal; }
 
 .card-link {
   cursor: pointer;
@@ -74,3 +97,20 @@
 @media screen and (min-width: 576px) {
   .modal-dialog {
     max-width: 1200px; } }
+
+.modal-dialog .modal-content .modal-header {
+  justify-content: space-around;
+  align-items: center; }
+
+.modal-dialog .modal-content .modal-header .modal-title {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; }
+
+.modal-dialog .modal-content .modal-header .modal-title .modal-header--logo {
+  max-width: 70px; }
+
+.modal-dialog .modal-content .modal-header .modal-title span {
+  margin: 0 1rem;
+  font-size: 1.7rem;
+  font-weight: bold; }

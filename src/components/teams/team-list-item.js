@@ -16,17 +16,23 @@ const TeamListItem = ({ team, onTeamSelect }) => {
     return (
         <div className="CardGroup-card">
             <Card className="card-team">
-                <CardImg top width="100%" src={team.competitor.icon} />
-                <CardBody>
-                    <CardTitle className="font-weight-bold">
-                        {team.competitor.name}
-                    </CardTitle>
-                    <CardText>{team.competitor.homeLocation}</CardText>
-                </CardBody>
+                <CardLink
+                    className="card-link--withUnderlineAnimation p-0"
+                    href={`https://overwatchleague.com/teams/${
+                        team.competitor.id
+                    }`}>
+                    <CardImg top width="100%" src={team.competitor.icon} />
+                    <CardBody>
+                        <CardTitle className="font-weight-bold">
+                            {team.competitor.name}
+                        </CardTitle>
+                        <CardText>{team.competitor.homeLocation}</CardText>
+                    </CardBody>
+                </CardLink>
                 <CardLink
                     onClick={() => onTeamSelect(team)}
                     // onClick={() => this.props.selectTeam(team)}
-                    className="card-button card-link--withUnderlineAnimation">
+                    className="card-bottom card-button card-link--withUnderlineAnimation">
                     View Roster
                 </CardLink>
             </Card>
