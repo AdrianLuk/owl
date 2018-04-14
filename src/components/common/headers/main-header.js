@@ -31,7 +31,7 @@ export default class MainHeader extends Component {
     }
     render() {
         return (
-            <Container>
+            <Container id="nav-container">
                 <Navbar light expand="lg">
                     <LinkContainer to="/">
                         <NavbarBrand>

@@ -70,3 +70,7 @@
 .card-link--withUnderlineAnimation:not([disabled]):hover::after,
 .card-link--withUnderlineAnimation:not([disabled]):hover::after {
   transform: translateX(0); }
+
+@media screen and (min-width: 576px) {
+  .modal-dialog {
+    max-width: 1200px; } }

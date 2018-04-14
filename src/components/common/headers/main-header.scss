@@ -8,7 +8,10 @@ h1 {
     text-align: center;
     padding: 20px;
 }
-.container {
+#nav-container {
+    @media (min-width: 1200px) {
+        max-width: 1600px;
+    }
     @media screen and (max-width: 991px) {
         padding: 0;
     }
@@ -55,7 +58,7 @@ nav a {
 }
 .navbar-nav {
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .nav-link {
     position: relative;
@@ -84,9 +87,9 @@ nav a {
     position: absolute;
     z-index: 1;
     content: "";
-    left: -1px;
+    left: -25%;
     bottom: 0;
-    width: calc(100% + 2px);
+    width: calc(100% + 50%);
     height: 4px;
     opacity: 0;
     background: #ff8900;
