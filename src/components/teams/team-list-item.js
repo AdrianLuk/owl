@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Collapse,
+    // Collapse,
     // Container,
     Card,
     CardImg,
@@ -8,8 +8,8 @@ import {
     CardText,
     // CardGroup,
     CardBody,
-    CardLink,
-    Modal
+    CardLink
+    // Modal
 } from "reactstrap";
 
 const TeamListItem = ({ team, onTeamSelect }) => {
@@ -21,7 +21,9 @@ const TeamListItem = ({ team, onTeamSelect }) => {
                     href={`https://overwatchleague.com/teams/${
                         team.competitor.id
                     }`}>
+                    <div className="card-logo">
                     <CardImg top width="100%" src={team.competitor.icon} />
+                    </div>
                     <CardBody>
                         <CardTitle className="font-weight-bold">
                             {team.competitor.name}

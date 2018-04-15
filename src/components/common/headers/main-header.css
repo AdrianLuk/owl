@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Industry-medium";
-  src: path("./fonts/industry-medium-webfont.woff2"); }
+  src: url("https://styleguide.overwatchleague.com/5.6.2/assets/themes/owl/fonts/industry-medium-webfont.woff2"); }
 
 @font-face {
   font-family: "Industry-bold";
-  src: path("./fonts/industry-bold-webfont.woff2"); }
+  src: url("https://styleguide.overwatchleague.com/5.6.2/assets/themes/owl/fonts/industry-bold-webfont.woff2"); }
 
 body {
   font-family: "Industry-medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }

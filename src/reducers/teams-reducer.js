@@ -1,4 +1,4 @@
-import _ from "lodash";
+// import _ from "lodash";
 import { FETCH_TEAMS } from "../actions/types";
 
 export default (state = [], action) => {

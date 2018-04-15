@@ -1,10 +1,16 @@
-import _ from "lodash";
+// import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchTeams, selectTeam } from "../../actions";
+import { fetchTeams } from "../../actions";
 import MainHeader from "../common/headers/main-header";
 import TeamList from "./team-list";
 import { bindActionCreators } from "redux";
+import {
+    ROLE_ICON_FLEX,
+    ROLE_ICON_SUPPORT,
+    ROLE_ICON_OFFENSE,
+    ROLE_ICON_TANK
+} from "../common/icons/role-icons";
 import {
     // Collapse,
     Container,
@@ -17,8 +23,8 @@ import {
     // CardLink,
     Modal,
     ModalBody,
-    ModalHeader,
-    ModalFooter
+    ModalHeader
+    // ModalFooter
 } from "reactstrap";
 // import { LinkContainer } from 'react-router-bootstrap';
 import "../common/headers/main-header.css";
@@ -53,7 +59,45 @@ class Teams extends Component {
     }
 
     renderPlayers(playerData) {
-        return <p>{playerData.player.name}</p>;
+        console.log(playerData);
+        let roleIcon;
+        // if(playerData.player.attributes.role == 'flex'){
+        //     roleIcon = ROLE_ICON_FLEX;
+        // }else if(playerData.player.attributes.role == 'support'){
+        //     roleIcon = ROLE_ICON_SUPPORT;
+        // }
+        switch (playerData.player.attributes.role) {
+            case "flex":
+                roleIcon = ROLE_ICON_FLEX;
+                break;
+            case "support":
+                roleIcon = ROLE_ICON_SUPPORT;
+                break;
+            case "offense":
+                roleIcon = ROLE_ICON_OFFENSE;
+                break;
+            case "tank":
+                roleIcon = ROLE_ICON_TANK;
+                break;
+            default:
+                break;
+        }
+        return (
+            <div
+                className="TeamRoster-player PlayerHandle"
+                key={playerData.player.id}>
+                <svg className="Icon Icon--lightFill">{roleIcon}</svg>
+                <div className="PlayerHandle-handleWrapper">
+                    <div className="PlayerHandle-handle">
+                        {playerData.player.name}
+                    </div>
+                    <div className="PlayerHandle-name">
+                        {playerData.player.givenName}{" "}
+                        {playerData.player.familyName}
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     render() {
@@ -77,6 +121,7 @@ class Teams extends Component {
                 </div>
             );
         }
+
         return (
             <div>
                 <MainHeader />
@@ -100,16 +145,33 @@ class Teams extends Component {
                         <ModalHeader>
                             <img
                                 className="modal-header--logo"
-                                src={this.state.selectedTeam.competitor.logo}
+                                src={this.state.selectedTeam.competitor.icon}
+                                alt={this.state.selectedTeam.competitor.name}
                             />
                             <span>
                                 {this.state.selectedTeam.competitor.name}
                             </span>
                         </ModalHeader>
                         <ModalBody>
-                            {this.state.selectedTeam.competitor.players.map(
-                                this.renderPlayers
-                            )}
+                            <section className="TeamRoster">
+                                <div className="TeamRoster-teamInfo">
+                                    <img
+                                        className="TeamRoster-logo img-fluid"
+                                        src={this.state.selectedTeam.competitor.icon}
+                                        alt={this.state.selectedTeam.competitor.name}
+                                    />
+                                    <div className="TeamRoster-infoWrapper">
+                                        <div className="TeamRoster-info">
+                                            <h2 className="TeamRoster-name">{this.state.selectedTeam.competitor.name}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="TeamRoster-playerList">
+                                    {this.state.selectedTeam.competitor.players.map(
+                                        this.renderPlayers
+                                    )}
+                                </div>
+                            </section>
                         </ModalBody>
                     </Modal>
                 </Container>

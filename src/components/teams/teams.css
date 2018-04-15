@@ -1,13 +1,18 @@
 @font-face {
   font-family: "Industry-medium";
-  src: path("./fonts/industry-medium-webfont.woff2"); }
+  src: url("https://styleguide.overwatchleague.com/5.6.2/assets/themes/owl/fonts/industry-medium-webfont.woff2"); }
 
 @font-face {
   font-family: "Industry-bold";
-  src: path("./fonts/industry-bold-webfont.woff2"); }
+  src: url("https://styleguide.overwatchleague.com/5.6.2/assets/themes/owl/fonts/industry-bold-webfont.woff2"); }
 
 .card-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap; }
 
 @media (min-width: 992px) {
@@ -16,6 +21,8 @@
     text-align: center; } }
 
 .card-group .CardGroup-card {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   padding: 12px 8px;
   border: none;
@@ -37,21 +44,73 @@
 .card-group .CardGroup-card .card-team {
   background-color: rgba(51, 51, 51, 0.06);
   height: 100%;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end; }
 
 .card-group .CardGroup-card .card-team .card-link {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin-left: 0;
+  font-size: 1rem;
+  line-height: 1;
   border-top: none;
-  border-bottom: 1px solid rgba(51, 51, 51, 0.2); }
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+  text-transform: uppercase; }
 
-.card-group .CardGroup-card .card-team .card-link .card-title {
+@media (min-width: 768px) {
+  .card-group .CardGroup-card .card-team .card-link {
+    font-size: .75rem; } }
+
+.card-group .CardGroup-card .card-team .card-link .card-logo {
+  position: relative;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  padding-top: calc(100% - 16px);
+  width: calc(100% - 16px); }
+
+@media (min-width: 768px) {
+  .card-group .CardGroup-card .card-team .card-link .card-logo {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding-top: calc(100% - 40px);
+    width: calc(100% - 40px); } }
+
+.card-group .CardGroup-card .card-team .card-link .card-logo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0; }
+
+.card-group .CardGroup-card .card-team .card-link .card-body {
+  flex-grow: 1;
+  padding: 8px; }
+
+@media (min-width: 768px) {
+  .card-group .CardGroup-card .card-team .card-link .card-body {
+    padding: 1rem; } }
+
+.card-group .CardGroup-card .card-team .card-link .card-body .card-title {
+  font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
   font-family: "Industry-bold", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-.card-group .CardGroup-card .card-team .card-link .card-text {
+@media (max-width: 767px) {
+  .card-group .CardGroup-card .card-team .card-link .card-body .card-title {
+    font-size: 1.5rem; } }
+
+.card-group .CardGroup-card .card-team .card-link .card-body .card-text {
   font-weight: normal; }
+
+@media (max-width: 767px) {
+  .card-group .CardGroup-card .card-team .card-link .card-body .card-text {
+    font-size: 1rem; } }
 
 .card-link {
   cursor: pointer;
@@ -62,10 +121,13 @@
   line-height: 1;
   border-top: 1px solid rgba(51, 51, 51, 0.2);
   display: -ms-flexbox;
+  display: -webkit-box;
   display: flex;
   -ms-flex-pack: center;
+  -webkit-box-pack: center;
   justify-content: center;
   max-width: none;
+  -webkit-transition: background-color 0.3s, color 0.3s;
   transition: background-color 0.3s, color 0.3s;
   padding: 1.075em 1.5em 0.925em;
   position: relative; }
@@ -85,13 +147,18 @@
   height: 4px;
   left: 0;
   position: absolute;
+  -webkit-transition: -webkit-transform 100ms ease-in-out;
+  transition: -webkit-transform 100ms ease-in-out;
   transition: transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+  -webkit-transform: translateX(-101%);
   transform: translateX(-101%);
   width: 100%;
   z-index: 10; }
 
 .card-link--withUnderlineAnimation:not([disabled]):hover::after,
 .card-link--withUnderlineAnimation:not([disabled]):hover::after {
+  -webkit-transform: translateX(0);
   transform: translateX(0); }
 
 @media screen and (min-width: 576px) {
@@ -99,11 +166,18 @@
     max-width: 1200px; } }
 
 .modal-dialog .modal-content .modal-header {
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; }
 
 .modal-dialog .modal-content .modal-header .modal-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 0 1rem; }
 
@@ -112,5 +186,84 @@
 
 .modal-dialog .modal-content .modal-header .modal-title span {
   margin: 0 1rem;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bold; }
+
+.Icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: relative;
+  vertical-align: middle;
+  text-align: center; }
+
+.Icon--lightFill {
+  fill: rgba(51, 51, 51, 0.4); }
+
+.TeamRoster {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 20px 12px 8px;
+  height: auto;
+  position: relative; }
+
+@media (min-width: 768px) {
+  .TeamRoster {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 40px; } }
+
+.TeamRoster .TeamRoster-teamInfo {
+  padding: 0 0 20px;
+  display: flex; }
+
+@media (min-width: 768px) {
+  .TeamRoster .TeamRoster-teamInfo {
+    width: 40%;
+    padding-left: 12px; } }
+
+@media (min-width: 992px) {
+  .TeamRoster .TeamRoster-teamInfo {
+    width: 30%; } }
+
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-logo {
+  width: 50px;
+  max-height: 50px;
+  flex-shrink: 0; }
+
+.TeamRoster .TeamRoster-playerList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; }
+
+@media (min-width: 768px) {
+  .TeamRoster .TeamRoster-playerList {
+    max-width: 65%;
+    flex-direction: row; } }
+
+.TeamRoster .TeamRoster-playerList .TeamRoster-player {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 24px 24px; }
+
+@media (min-width: 992px) {
+  .TeamRoster .TeamRoster-playerList .TeamRoster-player {
+    width: 50%; } }
+
+.TeamRoster .TeamRoster-playerList .TeamRoster-player .Icon {
+  width: 30px;
+  max-width: none;
+  margin-right: 0.5rem;
+  height: 1.6rem; }
+
+.TeamRoster .TeamRoster-playerList .TeamRoster-player .PlayerHandle-handleWrapper .PlayerHandle-handle {
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 700;
+  font-family: "Industry-bold", "Helvetica Neue", Helvetica, Arial, sans-serif; }

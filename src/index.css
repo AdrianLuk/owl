@@ -1,3 +1,22 @@
+body, html {
+  font-size: 16px; }
+
+@media (min-width: 768px) {
+  body, html {
+    font-size: 17px; } }
+
+@media (min-width: 992px) {
+  body, html {
+    font-size: 18px; } }
+
+@media (min-width: 1200px) {
+  body, html {
+    font-size: 19px; } }
+
+@media (min-width: 1600px) {
+  body, html {
+    font-size: 20px; } }
+
 body {
   margin: 0;
   padding: 0;
@@ -7,8 +26,31 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 0; }
 
+h1, .h1 {
+  font-size: 2rem;
+  line-height: 1.25; }
+
+h2, .h2 {
+  font-size: 1.625rem;
+  line-height: 1.25; }
+
+h3, .h3 {
+  font-size: 1.375rem;
+  line-height: 1.25; }
+
+h4, .h4 {
+  font-size: 1.125rem;
+  line-height: 1.25; }
+
+h5, .h5, h6, .h6 {
+  font-size: 1rem;
+  line-height: 1.25; }
+
 #root {
   margin-top: 10px; }
-  @media screen and (max-width: 991px) {
-    #root {
+
+@media screen and (max-width: 991px) {
+  #root {
+    margin: 0; } }
+t {
       margin: 0; } }
