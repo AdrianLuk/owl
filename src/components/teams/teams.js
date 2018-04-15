@@ -11,6 +11,7 @@ import {
     ROLE_ICON_OFFENSE,
     ROLE_ICON_TANK
 } from "../common/icons/role-icons";
+import { EXTERNAL_URL } from "../common/icons/general-icons";
 import {
     // Collapse,
     Container,
@@ -121,7 +122,13 @@ class Teams extends Component {
                 </div>
             );
         }
-
+        let owlDivision;
+        if (this.state.selectedTeam.competitor.owl_division == 79) {
+            owlDivision = "Atlantic Division";
+        } else {
+            owlDivision = "Pacific Division";
+        }
+        const urlIcon = EXTERNAL_URL;
         return (
             <div>
                 <MainHeader />
@@ -157,13 +164,51 @@ class Teams extends Component {
                                 <div className="TeamRoster-teamInfo">
                                     <img
                                         className="TeamRoster-logo img-fluid"
-                                        src={this.state.selectedTeam.competitor.icon}
-                                        alt={this.state.selectedTeam.competitor.name}
+                                        src={
+                                            this.state.selectedTeam.competitor
+                                                .icon
+                                        }
+                                        alt={
+                                            this.state.selectedTeam.competitor
+                                                .name
+                                        }
                                     />
                                     <div className="TeamRoster-infoWrapper">
                                         <div className="TeamRoster-info">
-                                            <h2 className="TeamRoster-name">{this.state.selectedTeam.competitor.name}</h2>
+                                            <h2 className="TeamRoster-name">
+                                                {
+                                                    this.state.selectedTeam
+                                                        .competitor.name
+                                                }
+                                            </h2>
+                                            <p className="TeamRoster-content">
+                                                {
+                                                    this.state.selectedTeam
+                                                        .competitor.homeLocation
+                                                }
+                                            </p>
+                                            <div className="TeamRoster-division">
+                                                {owlDivision}
+                                            </div>
                                         </div>
+                                        <a
+                                            target="_blank"
+                                            className="TeamRoster-link"
+                                            href={`https://${this.state.selectedTeam.competitor.name
+                                                .split(" ")
+                                                .pop()
+                                                .toLowerCase()}.overwatchleague.com`}>
+                                            Team Website
+                                            <svg
+                                                className="Icon"
+                                                id="icon-external-url"
+                                                viewBox="0 0 64 64"
+                                                width="100%"
+                                                height="100%">
+                                                <path d="M21.7,39.1c3.9-6.1,9-10,19.1-10v7L53.7,25,40.8,13.8v6.7C26.1,20.5,21.7,33,21.7,39.1Z" />
+                                                <path d="M48.8,35.7V47.2a.5.5,0,0,1-.5.5h-35a.5.5,0,0,1-.5-.5v-26a.5.5,0,0,1,.5-.5H25.9l5-5H13.3a5.5,5.5,0,0,0-5.5,5.5v26a5.5,5.5,0,0,0,5.5,5.5h35a5.5,5.5,0,0,0,5.5-5.5V30.7Z" />
+                                            </svg>
+                                        </a>
                                     </div>
                                 </div>
                                 <div className="TeamRoster-playerList">

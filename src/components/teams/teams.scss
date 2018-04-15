@@ -35,6 +35,7 @@
             -webkit-box-pack: end;
             -ms-flex-pack: end;
             justify-content: flex-end;
+
             .card-link {
                 -webkit-box-orient: vertical;
                 -webkit-box-direction: normal;
@@ -44,27 +45,26 @@
                 font-size: 1rem;
                 line-height: 1;
                 border-top: none;
-                border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+
                 text-transform: uppercase;
-                @media (min-width: 768px){
-                    font-size: .75rem;
-                    
+                @media (min-width: 768px) {
+                    font-size: 0.75rem;
                 }
-                .card-logo{
+                .card-logo {
                     position: relative;
                     margin-left: 8px;
                     margin-right: 8px;
                     margin-top: 8px;
                     padding-top: calc(100% - 16px);
                     width: calc(100% - 16px);
-                    @media (min-width:768px){
-                    margin-left: 20px;
-                    margin-right: 20px;
-                    margin-top: 20px;
-                    padding-top: calc(100% - 40px);
-                    width: calc(100% - 40px);
+                    @media (min-width: 768px) {
+                        margin-left: 20px;
+                        margin-right: 20px;
+                        margin-top: 20px;
+                        padding-top: calc(100% - 40px);
+                        width: calc(100% - 40px);
                     }
-                    img{
+                    img {
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -72,29 +72,33 @@
                         margin: 0;
                     }
                 }
-                .card-body{
+                .card-body {
                     flex-grow: 1;
                     padding: 8px;
-                    @media (min-width: 768px){
+                    @media (min-width: 768px) {
                         padding: 1rem;
                     }
-                
-                .card-title {
-                    font-size: 1rem;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    font-family: $main-font-bold;
-                    @media (max-width: 767px){
-                        font-size: 1.5rem;
-                    }
-                }
-                .card-text {
-                    font-weight: normal;
-                    @media (max-width: 767px){
+
+                    .card-title {
                         font-size: 1rem;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        font-family: $industry-bold;
+                        @media (max-width: 767px) {
+                            font-size: 1.5rem;
+                        }
+                    }
+                    .card-text {
+                        font-weight: normal;
+                        font-family: $roboto;
+                        @media (max-width: 767px) {
+                            font-size: 1rem;
+                        }
                     }
                 }
             }
+            .card-bottom {
+                border-top: 1px solid rgba(51, 51, 51, 0.2);
             }
         }
     }
@@ -157,6 +161,9 @@
         max-width: 1200px;
     }
     .modal-content {
+        .modal-body {
+            padding: 0;
+        }
         .modal-header {
             -ms-flex-pack: distribute;
             justify-content: space-around;
@@ -221,10 +228,50 @@
         @media (min-width: 992px) {
             width: 30%;
         }
-        .TeamRoster-logo{
+        .TeamRoster-logo {
             width: 50px;
             max-height: 50px;
-            flex-shrink:0;
+            flex-shrink: 0;
+        }
+        .TeamRoster-infoWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-left: 0.5rem;
+            .TeamRoster-info {
+                width: calc(100% - 1px);
+                padding-bottom: 20px;
+                .TeamRoster-name {
+                    margin: 0;
+                    font-weight: bold;
+                }
+                .TeamRoster-content {
+                    font-size: 0.875rem;
+                    line-height: 1;
+                    flex-grow: 1;
+                    margin-top: 0;
+                    margin-bottom: 8px;
+                }
+                .TeamRoster-division {
+                    font-size: 0.75rem;
+                    line-height: 1;
+                    display: inline-block;
+                    padding: 0.25rem 0.5rem;
+                    border: 1px solid rgba(51, 51, 51, 0.2);
+                }
+            }
+            .TeamRoster-link {
+                font-size: 0.875rem;
+                line-height: 1;
+                align-self: flex-start;
+                color: $owl-orange;
+                .Icon {
+                    fill: currentColor;
+                    width: 1.1rem;
+                    margin: 0 0 4px 4px;
+                }
+            }
         }
     }
     .TeamRoster-playerList {
@@ -251,11 +298,19 @@
                 height: 1.6rem;
             }
             .PlayerHandle-handleWrapper {
+                font-size: 1rem;
+                line-height: 1;
+                margin: 0;
+
                 .PlayerHandle-handle {
                     font-size: 1.4rem;
                     line-height: 1;
                     font-weight: 700;
-                    font-family: $main-font-bold;
+                    font-family: $industry-bold;
+                    margin-bottom: 5px;
+                }
+                .PlayerHandle-name {
+                    font-family: $roboto;
                 }
             }
         }

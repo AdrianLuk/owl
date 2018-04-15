@@ -57,12 +57,11 @@
   font-size: 1rem;
   line-height: 1;
   border-top: none;
-  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
   text-transform: uppercase; }
 
 @media (min-width: 768px) {
   .card-group .CardGroup-card .card-team .card-link {
-    font-size: .75rem; } }
+    font-size: 0.75rem; } }
 
 .card-group .CardGroup-card .card-team .card-link .card-logo {
   position: relative;
@@ -106,11 +105,15 @@
     font-size: 1.5rem; } }
 
 .card-group .CardGroup-card .card-team .card-link .card-body .card-text {
-  font-weight: normal; }
+  font-weight: normal;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 @media (max-width: 767px) {
   .card-group .CardGroup-card .card-team .card-link .card-body .card-text {
     font-size: 1rem; } }
+
+.card-group .CardGroup-card .card-team .card-bottom {
+  border-top: 1px solid rgba(51, 51, 51, 0.2); }
 
 .card-link {
   cursor: pointer;
@@ -164,6 +167,9 @@
 @media screen and (min-width: 576px) {
   .modal-dialog {
     max-width: 1200px; } }
+
+.modal-dialog .modal-content .modal-body {
+  padding: 0; }
 
 .modal-dialog .modal-content .modal-header {
   -ms-flex-pack: distribute;
@@ -235,6 +241,46 @@
   max-height: 50px;
   flex-shrink: 0; }
 
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-left: 0.5rem; }
+
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-info {
+  width: calc(100% - 1px);
+  padding-bottom: 20px; }
+
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-info .TeamRoster-name {
+  margin: 0;
+  font-weight: bold; }
+
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-info .TeamRoster-content {
+  font-size: 0.875rem;
+  line-height: 1;
+  flex-grow: 1;
+  margin-top: 0;
+  margin-bottom: 8px; }
+
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-info .TeamRoster-division {
+  font-size: 0.75rem;
+  line-height: 1;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(51, 51, 51, 0.2); }
+
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-link {
+  font-size: 0.875rem;
+  line-height: 1;
+  align-self: flex-start;
+  color: #ff8900; }
+
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-link .Icon {
+  fill: currentColor;
+  width: 1.1rem;
+  margin: 0 0 4px 4px; }
+
 .TeamRoster .TeamRoster-playerList {
   display: flex;
   flex-direction: column;
@@ -262,8 +308,17 @@
   margin-right: 0.5rem;
   height: 1.6rem; }
 
+.TeamRoster .TeamRoster-playerList .TeamRoster-player .PlayerHandle-handleWrapper {
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0; }
+
 .TeamRoster .TeamRoster-playerList .TeamRoster-player .PlayerHandle-handleWrapper .PlayerHandle-handle {
   font-size: 1.4rem;
   line-height: 1;
   font-weight: 700;
-  font-family: "Industry-bold", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Industry-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 5px; }
+
+.TeamRoster .TeamRoster-playerList .TeamRoster-player .PlayerHandle-handleWrapper .PlayerHandle-name {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
