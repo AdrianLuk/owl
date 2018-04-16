@@ -11,7 +11,7 @@ import {
     ROLE_ICON_OFFENSE,
     ROLE_ICON_TANK
 } from "../common/icons/role-icons";
-import { EXTERNAL_URL } from "../common/icons/general-icons";
+// import { EXTERNAL_URL } from "../common/icons/general-icons";
 import {
     // Collapse,
     Container,
@@ -22,6 +22,7 @@ import {
     // CardGroup,
     // CardBody,
     // CardLink,
+    Button,
     Modal,
     ModalBody,
     ModalHeader
@@ -50,23 +51,12 @@ class Teams extends Component {
     toggle() {
         this.setState({
             modal: !this.state.modal
-            // selectedTeam: this.props.teams[e.target.dataset.selected]
         });
-        //     // console.log(this.props.teams);
-        //     // console.log(e.target.dataset.selected);
-        //     // console.log(this.state.selectedTeam.competitor)
-        //     console.log(this.state.selectedTeam);
-        //     // this.props.selectTeam();
     }
 
     renderPlayers(playerData) {
-        console.log(playerData);
         let roleIcon;
-        // if(playerData.player.attributes.role == 'flex'){
-        //     roleIcon = ROLE_ICON_FLEX;
-        // }else if(playerData.player.attributes.role == 'support'){
-        //     roleIcon = ROLE_ICON_SUPPORT;
-        // }
+
         switch (playerData.player.attributes.role) {
             case "flex":
                 roleIcon = ROLE_ICON_FLEX;
@@ -117,7 +107,7 @@ class Teams extends Component {
                                     modal: !this.state.modal
                                 })
                             }
-                        />;
+                        />
                     </Container>
                 </div>
             );
@@ -128,7 +118,7 @@ class Teams extends Component {
         } else {
             owlDivision = "Pacific Division";
         }
-        const urlIcon = EXTERNAL_URL;
+        // const urlIcon = EXTERNAL_URL;
         return (
             <div>
                 <MainHeader />
@@ -148,76 +138,106 @@ class Teams extends Component {
                         className="modal-dialog-centered"
                         isOpen={this.state.modal}
                         toggle={this.toggle}>
-                        {console.log(this.state.selectedTeam)}
-                        <ModalHeader>
-                            <img
-                                className="modal-header--logo"
-                                src={this.state.selectedTeam.competitor.icon}
-                                alt={this.state.selectedTeam.competitor.name}
-                            />
-                            <span>
-                                {this.state.selectedTeam.competitor.name}
-                            </span>
-                        </ModalHeader>
-                        <ModalBody>
-                            <section className="TeamRoster">
-                                <div className="TeamRoster-teamInfo">
-                                    <img
-                                        className="TeamRoster-logo img-fluid"
-                                        src={
-                                            this.state.selectedTeam.competitor
-                                                .icon
-                                        }
-                                        alt={
-                                            this.state.selectedTeam.competitor
-                                                .name
-                                        }
-                                    />
-                                    <div className="TeamRoster-infoWrapper">
-                                        <div className="TeamRoster-info">
-                                            <h2 className="TeamRoster-name">
-                                                {
-                                                    this.state.selectedTeam
-                                                        .competitor.name
-                                                }
-                                            </h2>
-                                            <p className="TeamRoster-content">
-                                                {
-                                                    this.state.selectedTeam
-                                                        .competitor.homeLocation
-                                                }
-                                            </p>
-                                            <div className="TeamRoster-division">
-                                                {owlDivision}
+                        <span onClick={this.toggle} className="modal-close">
+                            <span className="fas fa-times" />
+                        </span>
+                        <div
+                            className="modal-border"
+                            style={{
+                                border: `5px solid #${
+                                    this.state.selectedTeam.competitor
+                                        .secondaryColor
+                                }`
+                            }}>
+                            <ModalHeader
+                                style={{
+                                    borderBottom: `3px solid #${
+                                        this.state.selectedTeam.competitor
+                                            .primaryColor
+                                    }`
+                                }}>
+                                <img
+                                    className="modal-header--logo"
+                                    src={
+                                        this.state.selectedTeam.competitor.icon
+                                    }
+                                    alt={
+                                        this.state.selectedTeam.competitor.name
+                                    }
+                                />
+                                <span>
+                                    {this.state.selectedTeam.competitor.name}
+                                </span>
+                            </ModalHeader>
+                            <ModalBody>
+                                <section className="TeamRoster">
+                                    <div className="TeamRoster-teamInfo">
+                                        <img
+                                            className="TeamRoster-logo img-fluid"
+                                            src={
+                                                this.state.selectedTeam
+                                                    .competitor.icon
+                                            }
+                                            alt={
+                                                this.state.selectedTeam
+                                                    .competitor.name
+                                            }
+                                        />
+                                        <div className="TeamRoster-infoWrapper">
+                                            <div className="TeamRoster-info">
+                                                <h2 className="TeamRoster-name">
+                                                    {
+                                                        this.state.selectedTeam
+                                                            .competitor.name
+                                                    }
+                                                </h2>
+                                                <p className="TeamRoster-content">
+                                                    {
+                                                        this.state.selectedTeam
+                                                            .competitor
+                                                            .homeLocation
+                                                    }
+                                                </p>
+                                                <div className="TeamRoster-division">
+                                                    {owlDivision}
+                                                </div>
                                             </div>
+                                            <a
+                                                target="_blank"
+                                                className="TeamRoster-link"
+                                                href={`https://${this.state.selectedTeam.competitor.name
+                                                    .split(" ")
+                                                    .pop()
+                                                    .toLowerCase()}.overwatchleague.com`}>
+                                                Team Website
+                                                <svg
+                                                    className="Icon"
+                                                    id="icon-external-url"
+                                                    viewBox="0 0 64 64"
+                                                    width="100%"
+                                                    height="100%">
+                                                    <path d="M21.7,39.1c3.9-6.1,9-10,19.1-10v7L53.7,25,40.8,13.8v6.7C26.1,20.5,21.7,33,21.7,39.1Z" />
+                                                    <path d="M48.8,35.7V47.2a.5.5,0,0,1-.5.5h-35a.5.5,0,0,1-.5-.5v-26a.5.5,0,0,1,.5-.5H25.9l5-5H13.3a5.5,5.5,0,0,0-5.5,5.5v26a5.5,5.5,0,0,0,5.5,5.5h35a5.5,5.5,0,0,0,5.5-5.5V30.7Z" />
+                                                </svg>
+                                            </a>
                                         </div>
-                                        <a
-                                            target="_blank"
-                                            className="TeamRoster-link"
-                                            href={`https://${this.state.selectedTeam.competitor.name
-                                                .split(" ")
-                                                .pop()
-                                                .toLowerCase()}.overwatchleague.com`}>
-                                            Team Website
-                                            <svg
-                                                className="Icon"
-                                                id="icon-external-url"
-                                                viewBox="0 0 64 64"
-                                                width="100%"
-                                                height="100%">
-                                                <path d="M21.7,39.1c3.9-6.1,9-10,19.1-10v7L53.7,25,40.8,13.8v6.7C26.1,20.5,21.7,33,21.7,39.1Z" />
-                                                <path d="M48.8,35.7V47.2a.5.5,0,0,1-.5.5h-35a.5.5,0,0,1-.5-.5v-26a.5.5,0,0,1,.5-.5H25.9l5-5H13.3a5.5,5.5,0,0,0-5.5,5.5v26a5.5,5.5,0,0,0,5.5,5.5h35a5.5,5.5,0,0,0,5.5-5.5V30.7Z" />
-                                            </svg>
-                                        </a>
                                     </div>
-                                </div>
-                                <div className="TeamRoster-playerList">
-                                    {this.state.selectedTeam.competitor.players.map(
-                                        this.renderPlayers
-                                    )}
-                                </div>
-                            </section>
-                        </ModalBody>
+                                    <div className="TeamRoster-playerList">
+                                        {this.state.selectedTeam.competitor.players.map(
+                                            this.renderPlayers
+                                        )}
+                                    </div>
+                                    <Button
+                                        color="link"
+                                        onClick={this.toggle}
+                                        className="TeamRoster-close">
+                                        <span className="button-text">
+                                            Close
+                                        </span>
+                                    </Button>
+                                </section>
+                            </ModalBody>
+                        </div>
                     </Modal>
                 </Container>
             </div>

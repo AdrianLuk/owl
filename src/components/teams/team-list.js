@@ -17,6 +17,6 @@ const TeamList = props => {
             <CardGroup>{teamItems}</CardGroup>
         </div>
     );
-};
+}
 
 export default TeamList;

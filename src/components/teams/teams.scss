@@ -157,10 +157,22 @@
 }
 
 .modal-dialog {
+    border-radius: 0.3rem;
     @media screen and (min-width: 576px) {
         max-width: 1200px;
     }
     .modal-content {
+        border-radius: 0.4rem;
+        .modal-border {
+            border-radius: 0.3rem;
+        }
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
         .modal-body {
             padding: 0;
         }
@@ -266,6 +278,10 @@
                 line-height: 1;
                 align-self: flex-start;
                 color: $owl-orange;
+                &:hover {
+                    color: #e67b00;
+                    text-decoration: none;
+                }
                 .Icon {
                     fill: currentColor;
                     width: 1.1rem;
@@ -313,6 +329,22 @@
                     font-family: $roboto;
                 }
             }
+        }
+    }
+    .TeamRoster-close,
+    .TeamRoster-close:hover,
+    .TeamRoster-close:active,
+    .TeamRoster-close:focus {
+        text-decoration: none;
+        @media (min-width: 768px) {
+            display: none;
+        }
+        .button-text {
+            font-size: 0.875rem;
+            line-height: 1;
+            font-weight: bold;
+            color: $owl-orange;
+            text-transform: uppercase;
         }
     }
 }

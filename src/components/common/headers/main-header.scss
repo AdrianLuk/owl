@@ -12,20 +12,22 @@ h1 {
     @media (min-width: 1200px) {
         max-width: 1600px;
     }
+    @media (max-width: 1199px) {
+        max-width: 1180px;
+    }
     @media screen and (max-width: 991px) {
         padding: 0;
     }
 }
 .navbar.navbar-light {
-    padding: 0;
     background: #fefefe;
     border-radius: 2px;
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.06);
     // border: 1px solid black;
-    height: 56px;
-    @media screen and (max-width: 991px) {
-        height: auto;
+    height: auto;
+    @media screen and (min-width: 992px) {
         padding: 0;
+        height: 70px;
     }
     .navbar-toggler {
         color: rgba(0, 0, 0, 0.5);

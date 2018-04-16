@@ -22,7 +22,7 @@ const TeamListItem = ({ team, onTeamSelect }) => {
                         team.competitor.id
                     }`}>
                     <div className="card-logo">
-                    <CardImg top width="100%" src={team.competitor.icon} />
+                        <CardImg top width="100%" src={team.competitor.icon} />
                     </div>
                     <CardBody>
                         <CardTitle className="font-weight-bold">
@@ -35,7 +35,9 @@ const TeamListItem = ({ team, onTeamSelect }) => {
                     onClick={() => onTeamSelect(team)}
                     // onClick={() => this.props.selectTeam(team)}
                     className="card-bottom card-button card-link--withUnderlineAnimation">
-                    View Roster
+                    <span>
+                        View Roster <span className="ml-2 far fa-clone" />
+                    </span>
                 </CardLink>
             </Card>
         </div>

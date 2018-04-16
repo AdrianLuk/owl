@@ -164,9 +164,25 @@
   -webkit-transform: translateX(0);
   transform: translateX(0); }
 
+.modal-dialog {
+  border-radius: 0.3rem; }
+
 @media screen and (min-width: 576px) {
   .modal-dialog {
     max-width: 1200px; } }
+
+.modal-dialog .modal-content {
+  border-radius: 0.4rem; }
+
+.modal-dialog .modal-content .modal-border {
+  border-radius: 0.3rem; }
+
+.modal-dialog .modal-content .modal-close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer; }
 
 .modal-dialog .modal-content .modal-body {
   padding: 0; }
@@ -276,6 +292,10 @@
   align-self: flex-start;
   color: #ff8900; }
 
+.TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-link:hover {
+  color: #e67b00;
+  text-decoration: none; }
+
 .TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-link .Icon {
   fill: currentColor;
   width: 1.1rem;
@@ -322,3 +342,26 @@
 
 .TeamRoster .TeamRoster-playerList .TeamRoster-player .PlayerHandle-handleWrapper .PlayerHandle-name {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.TeamRoster .TeamRoster-close,
+.TeamRoster .TeamRoster-close:hover,
+.TeamRoster .TeamRoster-close:active,
+.TeamRoster .TeamRoster-close:focus {
+  text-decoration: none; }
+
+@media (min-width: 768px) {
+  .TeamRoster .TeamRoster-close,
+  .TeamRoster .TeamRoster-close:hover,
+  .TeamRoster .TeamRoster-close:active,
+  .TeamRoster .TeamRoster-close:focus {
+    display: none; } }
+
+.TeamRoster .TeamRoster-close .button-text,
+.TeamRoster .TeamRoster-close:hover .button-text,
+.TeamRoster .TeamRoster-close:active .button-text,
+.TeamRoster .TeamRoster-close:focus .button-text {
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: bold;
+  color: #ff8900;
+  text-transform: uppercase; }
