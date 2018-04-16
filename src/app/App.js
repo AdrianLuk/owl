@@ -8,6 +8,7 @@ import Teams from "../components/teams/teams";
 import Standings from "../components/standings/standings";
 import Videos from "../components/videos/videos";
 import News from "../components/news/news";
+import Maps from "../components/maps/maps";
 import NotFound from "../components/common/not-found";
 import "./App.css";
 
@@ -21,6 +22,7 @@ class App extends Component {
                     <Route path="/schedule" component={Schedule} />
                     <Route path="/standings" component={Standings} />
                     <Route path="/videos" component={Videos} />
+                    <Route path="/maps" component={Maps} />
                     <Route path="/news" component={News} />
                     <Route path="/" component={Home} />
                     <Route path="*" component={NotFound} />

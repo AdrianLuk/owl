@@ -102,6 +102,9 @@ export default class MainHeader extends Component {
 
                             <NavLink disabled>Stats</NavLink>
 
+                            <LinkContainer to="/maps">
+                                <NavLink>Maps</NavLink>
+                            </LinkContainer>
                             <LinkContainer to="/videos">
                                 <NavLink>Videos</NavLink>
                             </LinkContainer>
