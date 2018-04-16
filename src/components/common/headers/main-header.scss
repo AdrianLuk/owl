@@ -22,7 +22,8 @@ h1 {
 .navbar.navbar-light {
     background: #fefefe;
     border-radius: 2px;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.06);
+    box-shadow: $box-shadow-float;
+    // box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.06);
     // border: 1px solid black;
     height: auto;
     padding: 0.5rem;

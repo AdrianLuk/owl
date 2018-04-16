@@ -20,7 +20,15 @@
 }
 
 .Article {
-    padding: 1rem;
+    padding: 2rem;
+    @media (min-width: 768px) {
+        padding: 3rem 0;
+    }
+    &-bg {
+        &--white {
+            background-color: #fff;
+        }
+    }
     &-title {
         font-family: $industry;
     }

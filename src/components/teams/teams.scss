@@ -35,7 +35,8 @@
             -webkit-box-pack: end;
             -ms-flex-pack: end;
             justify-content: flex-end;
-
+            border-bottom: none;
+            box-shadow: $box-shadow-float;
             .card-link {
                 -webkit-box-orient: vertical;
                 -webkit-box-direction: normal;

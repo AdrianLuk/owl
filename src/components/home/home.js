@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import MainHeader from "../common/headers/main-header";
+import Footer from "../common/footers/main-footer";
+import { LinkContainer } from "react-router-bootstrap";
 import { Container, Jumbotron, Row, Col, Button } from "reactstrap";
 import { fetchTeams } from "../../actions";
 import { OWL_LOGO } from "../common/icons/general-icons";
@@ -15,15 +17,18 @@ class Home extends Component {
                 <Jumbotron
                     fluid
                     className="Jumbotron Jumbotron-hero--full-width">
-                    <h1>
-                        <span className="Title-logo">{OWL_LOGO}</span>Overwatch
-                        League
-                    </h1>
-                    <p className="lead Text-intro">
-                        Hi I'm Adrian Luk. This is my rendition of the official
-                        Overwatch League's website using React. The data is
-                        pulled from the official Overwatch League API.
-                    </p>
+                    <Container>
+                        <h1>
+                            <span className="Title-logo">{OWL_LOGO}</span>Overwatch
+                            League
+                        </h1>
+                        <p className="lead Text-intro">
+                            Hi I'm Adrian Luk. This is my rendition of the
+                            official Overwatch League's website using React. The
+                            data is pulled from the official Overwatch League
+                            API.
+                        </p>
+                    </Container>
                 </Jumbotron>
                 <Container>
                     <article className="Article">
@@ -44,7 +49,9 @@ class Home extends Component {
                             </a>.
                         </p>
                     </article>
-                    <article className="Article">
+                </Container>
+                <article className="Article Article-bg--white">
+                    <Container>
                         <h2 className="Article-title">
                             What is the Overwatch League?
                         </h2>
@@ -64,8 +71,10 @@ class Home extends Component {
                             winnings and revenue-sharing based on how that team
                             performs in the season.
                         </p>
-                    </article>
-                    <article className="Article Article-bg--white">
+                    </Container>
+                </article>
+                <Container>
+                    <article className="Article">
                         <Row>
                             <Col
                                 xs="12"
@@ -89,17 +98,20 @@ class Home extends Component {
                                     million in performance bonuses at stake in
                                     the inaugural season.
                                 </p>
-                                <Button
-                                    outline
-                                    color="info"
-                                    size="lg"
-                                    className="Article-cta">
-                                    View Teams
-                                </Button>
+                                <LinkContainer to="/teams">
+                                    <Button
+                                        outline
+                                        color="info"
+                                        size="lg"
+                                        className="Article-cta">
+                                        View Teams
+                                    </Button>
+                                </LinkContainer>
                             </Col>
                         </Row>
                     </article>
                 </Container>
+                <Footer />
             </div>
         );
     }

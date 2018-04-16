@@ -24,7 +24,14 @@
   padding: 1rem; }
 
 .Article {
-  padding: 1rem; }
+  padding: 2rem; }
+
+@media (min-width: 768px) {
+  .Article {
+    padding: 3rem 0; } }
+
+.Article-bg--white {
+  background-color: #fff; }
 
 .Article-title {
   font-family: "Industry-medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }

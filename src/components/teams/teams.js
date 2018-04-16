@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTeams } from "../../actions";
 import MainHeader from "../common/headers/main-header";
+import Footer from "../common/footers/main-footer";
 import TeamList from "./team-list";
 import { bindActionCreators } from "redux";
 import {
@@ -109,11 +110,12 @@ class Teams extends Component {
                             }
                         />
                     </Container>
+                    <Footer />
                 </div>
             );
         }
         let owlDivision;
-        if (this.state.selectedTeam.competitor.owl_division == 79) {
+        if (this.state.selectedTeam.competitor.owl_division === 79) {
             owlDivision = "Atlantic Division";
         } else {
             owlDivision = "Pacific Division";
