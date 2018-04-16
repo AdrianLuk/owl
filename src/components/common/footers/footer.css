@@ -10,7 +10,11 @@
   padding: 1.5rem 1.5rem 1rem;
   background: #fefefe;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  margin-top: 40px; }
+  margin-top: 20px; }
+
+@media (min-width: 768px) {
+  .Footer {
+    margin-top: 40px; } }
 
 .Footer .row {
   justify-content: center; }

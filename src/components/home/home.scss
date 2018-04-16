@@ -39,13 +39,16 @@
         justify-content: center;
     }
     &-cta {
-        width: 50%;
-        margin-right: auto;
+        margin: auto;
         @media (min-width: 768px) {
+            margin-left: 0;
             margin-right: auto;
         }
     }
     &-image {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.2rem;
+        @media (min-width: 768px) {
+            margin: 0;
+        }
     }
 }

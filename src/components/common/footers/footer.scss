@@ -4,7 +4,11 @@
     padding: 1.5rem 1.5rem 1rem;
     background: #fefefe;
     box-shadow: $box-shadow-float;
-    margin-top: 40px;
+    margin-top: 20px;
+    @media (min-width: 768px) {
+        margin-top: 40px;
+    }
+
     .row {
         justify-content: center;
     }

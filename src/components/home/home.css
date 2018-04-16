@@ -43,12 +43,16 @@
   justify-content: center; }
 
 .Article-cta {
-  width: 50%;
-  margin-right: auto; }
+  margin: auto; }
 
 @media (min-width: 768px) {
   .Article-cta {
+    margin-left: 0;
     margin-right: auto; } }
 
 .Article-image {
-  margin-bottom: 0.5rem; }
+  margin-bottom: 1.2rem; }
+
+@media (min-width: 768px) {
+  .Article-image {
+    margin: 0; } }
