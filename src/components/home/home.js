@@ -3,30 +3,59 @@ import MainHeader from "../common/headers/main-header";
 import Footer from "../common/footers/main-footer";
 import { LinkContainer } from "react-router-bootstrap";
 import { Container, Jumbotron, Row, Col, Button } from "reactstrap";
-import { fetchTeams } from "../../actions";
+// import { fetchTeams } from "../../actions";
 import { OWL_LOGO } from "../common/icons/general-icons";
+import YouTube from "react-youtube";
 import "./home.css";
 
 class Home extends Component {
     componentDidMount() {}
-
+    _onReady(event) {
+        event.target.mute();
+        event.target.setPlaybackRate(0.5);
+        // console.log(event.target);
+        event.target.playVideo();
+    }
     render() {
+        const opts = {
+            height: "800",
+            width: "100%",
+            playerVars: {
+                autoplay: 1,
+                loop: 1,
+                showinfo: 0,
+                disablekb: 1,
+                modestbranding: 1,
+                playsinline: 1,
+                fs: 0,
+                rel: 0,
+                mute: 1,
+                // vpr: "0.5",
+                controls: 0
+            }
+        };
+        // video url = https://www.youtube.com/watch?v=OFHpK627XkI ;
         return (
             <div>
                 <MainHeader />
+
                 <Jumbotron
                     fluid
                     className="Jumbotron Jumbotron-hero--full-width">
-                    <Container>
+                    <YouTube
+                        id="youtube-video"
+                        videoId="OFHpK627XkI"
+                        opts={opts}
+                        onReady={this._onReady}
+                    />
+                    <Container className="Jumbotron-text">
                         <h1>
                             <span className="Title-logo">{OWL_LOGO}</span>Overwatch
                             League
                         </h1>
                         <p className="lead Text-intro">
                             Hi I'm Adrian Luk. This is my rendition of the
-                            official Overwatch League's website using React. The
-                            data is pulled from the official Overwatch League
-                            API.
+                            official Overwatch League's website using React.
                         </p>
                     </Container>
                 </Jumbotron>
@@ -111,6 +140,46 @@ class Home extends Component {
                         </Row>
                     </article>
                 </Container>
+                <article className="Article Article-bg--white">
+                    <Container>
+                        <Row>
+                            <Col
+                                xs="12"
+                                md={{ size: 6, order: 2 }}
+                                className="Article-image">
+                                <img
+                                    className="img-fluid"
+                                    src="images/players-profiles.jpg"
+                                    alt="Overwatch League Players"
+                                />
+                            </Col>
+                            <Col xs="12" md="6" className="Article-content">
+                                <h2 className="Article-title">The Players</h2>
+                                <p className="Article-text mb-2">
+                                    With a USD $50,000 minimum base salary,
+                                    healthcare and retirement savings plans, and
+                                    housing provided during the season, the
+                                    Overwatch League's pro players are able to
+                                    pursue a sustainable career that celebrates
+                                    their passion, dedication, and skill.
+                                </p>
+                                <p className="Article-text">
+                                    Meet the next generation of esports
+                                    superstars.
+                                </p>
+                                <LinkContainer to="/players">
+                                    <Button
+                                        outline
+                                        color="info"
+                                        size="lg"
+                                        className="Article-cta">
+                                        View Players
+                                    </Button>
+                                </LinkContainer>
+                            </Col>
+                        </Row>
+                    </Container>
+                </article>
                 <Footer />
             </div>
         );
