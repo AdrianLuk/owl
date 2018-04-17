@@ -16,6 +16,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
+        -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
     h1 {
@@ -52,8 +53,15 @@
     }
     &-content {
         font-family: $roboto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
         .Article-text {
             margin-bottom: 0;
@@ -75,6 +83,7 @@
     }
 }
 .html5-main-video {
+    -webkit-transform: scale(1.4) !important;
     transform: scale(1.4) !important;
 }
 
@@ -87,6 +96,7 @@ iframe {
         height: 80vh;
     }
     .html5-main-video {
+        -webkit-transform: scale(1.4) !important;
         transform: scale(1.4) !important;
     }
 }
