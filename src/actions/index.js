@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { FETCH_TEAMS, TEAM_SELECTED, FETCH_SCHEDULE } from "./types";
+import { FETCH_TEAMS, TEAM_SELECTED, FETCH_SCHEDULE, FETCH_MAPS } from "./types";
 
 const apiUrl = "https://api.overwatchleague.com";
 
@@ -24,4 +24,12 @@ export function fetchSchedule() {
         payload: request
     };
     // console.log(request);
+}
+
+export function fetchMaps() {
+    const request = axios.get(`${apiUrl}/maps`);
+    return {
+        type: FETCH_MAPS,
+        payload: request
+    };
 }
