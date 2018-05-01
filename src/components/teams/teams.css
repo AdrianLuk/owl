@@ -48,6 +48,7 @@
   -ms-flex-pack: end;
   justify-content: flex-end;
   border-bottom: none;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2); }
 
 .card-group .CardGroup-card .card-team .card-link {
@@ -89,6 +90,8 @@
   margin: 0; }
 
 .card-group .CardGroup-card .card-team .card-link .card-body {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   padding: 8px; }
 
@@ -237,12 +240,19 @@
 
 @media (min-width: 768px) {
   .TeamRoster {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding-top: 40px; } }
 
 .TeamRoster .TeamRoster-teamInfo {
   padding: 0 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
 
 @media (min-width: 768px) {
@@ -257,12 +267,22 @@
 .TeamRoster .TeamRoster-teamInfo .TeamRoster-logo {
   width: 50px;
   max-height: 50px;
+  -ms-flex-negative: 0;
   flex-shrink: 0; }
 
 .TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
   align-items: baseline;
   margin-left: 0.5rem; }
 
@@ -277,6 +297,8 @@
 .TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-info .TeamRoster-content {
   font-size: 0.875rem;
   line-height: 1;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   margin-top: 0;
   margin-bottom: 8px; }
@@ -291,6 +313,7 @@
 .TeamRoster .TeamRoster-teamInfo .TeamRoster-infoWrapper .TeamRoster-link {
   font-size: 0.875rem;
   line-height: 1;
+  -ms-flex-item-align: start;
   align-self: flex-start;
   color: #ff8900; }
 
@@ -304,13 +327,22 @@
   margin: 0 0 4px 4px; }
 
 .TeamRoster .TeamRoster-playerList {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
 @media (min-width: 768px) {
   .TeamRoster .TeamRoster-playerList {
     max-width: 65%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row; } }
 
 .TeamRoster .TeamRoster-playerList .TeamRoster-player {
