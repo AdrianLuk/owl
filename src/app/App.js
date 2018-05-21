@@ -15,7 +15,7 @@ import "./App.css";
 class App extends Component {
     render() {
         return (
-            <Router>
+            <Router basename="/overwatchleague">
                 <Switch>
                     <Route path="/teams" component={Teams} />
                     <Route path="/players" component={Players} />
