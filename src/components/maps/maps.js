@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import MainHeader from "../common/headers/main-header";
-import { fetchMaps } from '../../actions';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import './maps.css';
+import { fetchMaps } from "../../actions";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import "./maps.css";
 
 class Maps extends Component {
     constructor(props) {
@@ -18,9 +18,7 @@ class Maps extends Component {
     renderMapList() {
         // console.log(this.props.maps);
         const maps = this.props.maps.map(map => {
-            return (
-                <a href="javascript:void(0)">{map.name}</a>
-            );
+            return <a href="javascript:void(0)">{map.name}</a>;
         });
     }
     render() {
@@ -41,9 +39,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(
-        { fetchMaps: fetchMaps }, dispatch
-    );
+    return bindActionCreators({ fetchMaps: fetchMaps }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);
