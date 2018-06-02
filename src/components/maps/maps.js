@@ -17,8 +17,8 @@ class Maps extends Component {
 
     renderMapList() {
         // console.log(this.props.maps);
-        const maps = this.props.maps.map(map => {
-            return <a href="javascript:void(0)">{map.name}</a>;
+        return this.props.maps.map(map => {
+            return <li key={map.id}>{map.name.en_US}</li>;
         });
     }
     render() {
@@ -26,7 +26,7 @@ class Maps extends Component {
             <div>
                 <MainHeader />
                 <h1>Maps Page</h1>
-                {this.renderMapList()}
+                <ul>{this.renderMapList()}</ul>
             </div>
         );
     }
