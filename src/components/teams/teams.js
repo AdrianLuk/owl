@@ -242,6 +242,7 @@ class Teams extends Component {
                         </div>
                     </Modal>
                 </Container>
+                <Footer />
             </div>
         );
     }
@@ -271,4 +272,7 @@ function mapDispatchToProps(dispatch) {
 
 // Promoting Teams from component to a container - it needs to know about the new dispatch methods.
 // Make it available as a prop
-export default connect(mapStateToProps, mapDispatchToProps)(Teams);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Teams);

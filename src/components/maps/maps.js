@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import MainHeader from "../common/headers/main-header";
 import { fetchMaps } from "../../actions";
+import _ from "lodash";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Container, Row, Col } from "reactstrap";
 import "./maps.css";
 
 class Maps extends Component {
     constructor(props) {
         super(props);
         this.renderMapList = this.renderMapList.bind(this);
+        this.state = {
+            selectedMap: null
+        };
     }
 
     componentDidMount() {
@@ -17,8 +22,19 @@ class Maps extends Component {
 
     renderMapList() {
         // console.log(this.props.maps);
-        return this.props.maps.map(map => {
-            return <li key={map.id}>{map.name.en_US}</li>;
+        const unique = _.uniqBy(this.props.maps, "id");
+        console.log(unique);
+        return unique.map(map => {
+            return (
+                <Col xs="12" md="4" key={map.guid}>
+                    <img
+                        className="img-fluid w-100"
+                        src={map.thumbnail ? map.thumbnail : " "}
+                        alt={map.thumbnail ? map.id : "No Picture Yet"}
+                    />
+                    <h1 className="h3">{map.name.en_US}</h1>
+                </Col>
+            );
         });
     }
     render() {
@@ -26,7 +42,9 @@ class Maps extends Component {
             <div>
                 <MainHeader />
                 <h1>Maps Page</h1>
-                <ul>{this.renderMapList()}</ul>
+                <Container>
+                    <Row>{this.renderMapList()}</Row>
+                </Container>
             </div>
         );
     }
@@ -42,4 +60,7 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ fetchMaps: fetchMaps }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Maps);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Maps);

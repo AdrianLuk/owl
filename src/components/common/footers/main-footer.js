@@ -7,8 +7,8 @@ const Footer = () => {
     return (
         <footer className="Footer">
             <Container className="Footer-container">
-                <Row>
-                    <Col xs="12" md="3" className="mx-auto">
+                <Row className="text-center">
+                    <Col xs="12" className="mx-auto">
                         <h6 className="Footer-heading">Where To Find Me</h6>
                         <p className="Footer-social">
                             <span className="fas fa-globe Footer-icon" />{" "}
@@ -27,7 +27,6 @@ const Footer = () => {
                     </Col>
                     <Col
                         xs="12"
-                        md="3"
                         className="Footer-copyright--aligned-bottom mx-auto">
                         <p className="Footer-copyright ">
                             <span className="far fa-copyright Footer-icon Footer-icon--copyright" />{" "}
