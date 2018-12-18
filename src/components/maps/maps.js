@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import MainHeader from "../common/headers/main-header";
+import Footer from "../common/footers/main-footer";
 import { fetchMaps } from "../../actions";
-import _ from "lodash";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Container, Row, Col } from "reactstrap";
+import MapList from "./map-list";
+import { Container, Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 import "./maps.css";
 
 class Maps extends Component {
     constructor(props) {
         super(props);
-        this.renderMapList = this.renderMapList.bind(this);
+        // this.renderMapList = this.renderMapList.bind(this);
+        this.toggle = this.toggle.bind(this);
         this.state = {
+            modal: false,
             selectedMap: null
         };
     }
@@ -19,31 +22,88 @@ class Maps extends Component {
     componentDidMount() {
         this.props.fetchMaps();
     }
-
-    renderMapList() {
-        // console.log(this.props.maps);
-        const unique = _.uniqBy(this.props.maps, "id");
-        console.log(unique);
-        return unique.map(map => {
-            return (
-                <Col xs="12" md="4" key={map.guid}>
-                    <img
-                        className="img-fluid w-100"
-                        src={map.thumbnail ? map.thumbnail : " "}
-                        alt={map.thumbnail ? map.id : "No Picture Yet"}
-                    />
-                    <h1 className="h3">{map.name.en_US}</h1>
-                </Col>
-            );
+    toggle() {
+        this.setState({
+            modal: !this.state.modal
         });
     }
+    renderMapList() {
+        // console.log(this.props.maps);
+    }
     render() {
+        if (!this.state.selectedMap) {
+            return (
+                <div>
+                    <MainHeader />
+                    <h1>Maps</h1>{" "}
+                    <Container>
+                        <MapList
+                        maps={this.props.maps}
+                        onClick={this.toggle}
+                        onMapSelect={selectedMap =>
+                            this.setState({
+                                selectedMap: selectedMap,
+                                modal: !this.state.modal
+                            })
+                        }
+                    />
+                    </Container>
+                    <Footer />
+                </div>
+            );
+        }
         return (
             <div>
                 <MainHeader />
                 <h1>Maps Page</h1>
                 <Container>
-                    <Row>{this.renderMapList()}</Row>
+                    <MapList
+                        maps={this.props.maps}
+                        onClick={this.toggle}
+                        onMapSelect={selectedMap =>
+                            this.setState({
+                                selectedMap: selectedMap,
+                                modal: !this.state.modal
+                            })
+                        }
+                    />
+                    <Modal
+                        className="modal-dialog-centered"
+                        isOpen={this.state.modal}
+                        toggle={this.toggle}>
+                        <span onClick={this.toggle} className="modal-close">
+                            <span className="fas fa-times" />
+                        </span>
+                        <div className="modal-border">
+                            <ModalHeader>
+                                <span>{this.state.selectedMap.name.en_US}</span>
+                            </ModalHeader>
+                            <ModalBody>
+                                <section className="TeamRoster">
+                                    <div className="mx-auto">
+                                        <img
+                                            className=" img-fluid"
+                                            src={
+                                                this.state.selectedMap.thumbnail
+                                            }
+                                            alt={
+                                                this.state.selectedMap
+                                                    .name.en_US}
+                                        />
+                                        
+                                    </div>
+                                    <Button
+                                        color="link"
+                                        onClick={this.toggle}
+                                        className="TeamRoster-close">
+                                        <span className="button-text">
+                                            Close
+                                        </span>
+                                    </Button>
+                                </section>
+                            </ModalBody>
+                        </div>
+                    </Modal>
                 </Container>
             </div>
         );
@@ -52,7 +112,8 @@ class Maps extends Component {
 
 function mapStateToProps(state) {
     return {
-        maps: state.maps
+        maps: state.maps,
+        selectedMap: state.selectedMap
     };
 }
 

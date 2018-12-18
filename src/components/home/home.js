@@ -149,7 +149,7 @@ class Home extends Component {
                                 className="Article-image">
                                 <img
                                     className="img-fluid"
-                                    src="images/players-profiles.jpg"
+                                    src="/images/players-profiles.jpg"
                                     alt="Overwatch League Players"
                                 />
                             </Col>

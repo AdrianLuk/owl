@@ -35,7 +35,7 @@ h1 {
   @media screen and (min-width: 992px) {
     .navbar.navbar-light {
       padding: 0;
-      height: 70px; } }
+      height: 66px; } }
   .navbar.navbar-light .navbar-toggler {
     color: rgba(0, 0, 0, 0.5);
     border-color: none; }
@@ -91,9 +91,10 @@ nav a {
   position: absolute;
   z-index: 1;
   content: "";
-  left: -25%;
+  left: 50%;
   bottom: 0;
-  width: calc(100% + 50%);
+  width: 100%;
+  transform: translateX(-50%);
   height: 4px;
   opacity: 0;
   background: #ff8900;
