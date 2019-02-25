@@ -1,15 +1,25 @@
 import React from "react";
-import _ from "lodash";
-import { CardGroup } from "reactstrap";
-// import MapListItem from "./map-list-item";
+// import _ from "lodash";
+import { Spinner, ListGroup } from "reactstrap";
+import NewsListItem from "./news-list-item";
 
-const NewsList = props => {
-    // const maps = _.uniqBy(props.maps, "id");
-    console.log(props);
-    // const newsItems = props.news.map(article => {
-    //     console.log(article);
-    // });
-    return <div>HI</div>;
+const NewsList = ({ news }) => {
+    if (!news.blogs) {
+        return (
+            <div className="text-center">
+                <Spinner style={{ color: "#ff8900", margin: "auto" }} />
+            </div>
+        );
+    }
+    const newsItems = news.blogs.map(blog => {
+        return <NewsListItem key={blog.blogId} blog={blog} />;
+    });
+
+    return (
+        <ListGroup style={{ backgroundColor: "transparent" }} flush>
+            {newsItems}
+        </ListGroup>
+    );
 };
 
 export default NewsList;
