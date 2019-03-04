@@ -1,6 +1,14 @@
 import axios from "axios";
 
-import { FETCH_TEAMS, TEAM_SELECTED, FETCH_SCHEDULE, FETCH_MAPS } from "./types";
+import {
+    FETCH_TEAMS,
+    TEAM_SELECTED,
+    FETCH_SCHEDULE,
+    FETCH_MAPS,
+    MAP_SELECTED,
+    FETCH_NEWS,
+    FETCH_VIDEOS
+} from "./types";
 
 const apiUrl = "https://api.overwatchleague.com";
 
@@ -30,6 +38,29 @@ export function fetchMaps() {
     const request = axios.get(`${apiUrl}/maps`);
     return {
         type: FETCH_MAPS,
+        payload: request
+    };
+}
+
+export function selectMap(activeMap) {
+    return {
+        type: MAP_SELECTED,
+        payload: activeMap
+    };
+}
+
+export function fetchNews() {
+    const request = axios.get(`${apiUrl}/news?pageSize=10`);
+    return {
+        type: FETCH_NEWS,
+        payload: request
+    };
+}
+
+export function fetchVideos() {
+    const request = axios.get(`${apiUrl}/playlist/owl-app-playlist`);
+    return {
+        type: FETCH_VIDEOS,
         payload: request
     };
 }

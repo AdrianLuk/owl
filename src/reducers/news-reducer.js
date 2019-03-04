@@ -1,8 +1,8 @@
-import { FETCH_MAPS } from "../actions/types";
+import { FETCH_NEWS } from "../actions/types";
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
     switch (action.type) {
-        case FETCH_MAPS:
+        case FETCH_NEWS:
             return action.payload.data;
         default:
             return state;

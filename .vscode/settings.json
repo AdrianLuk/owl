@@ -10,8 +10,8 @@
         "progressBar.background": "#2979FF",
         "pickerGroup.foreground": "#2979FF",
         "tab.activeBorder": "#2979FF",
-        "activityBar.background": "#053523",
-        "titleBar.activeBackground": "#074A32",
-        "titleBar.activeForeground": "#EFFEF8"
+        "activityBar.background": "#122E54",
+        "titleBar.activeBackground": "#194075",
+        "titleBar.activeForeground": "#F8FAFD"
     }
 }
