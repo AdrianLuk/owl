@@ -35,5 +35,6 @@
         "node-sass": "^4.11.0",
         "npm-run-all": "^4.1.2",
         "webpack": "^3.10.0"
-    }
+    },
+    "homepage": "http://adrianluk.com/overwatchleague"
 }
