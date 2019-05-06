@@ -5,6 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Container, Jumbotron, Row, Col, Button } from "reactstrap";
 // import { fetchTeams } from "../../actions";
 import { OWL_LOGO } from "../common/icons/general-icons";
+import playersProfiles from "../common/images/players-profiles.jpg";
 import YouTube from "react-youtube";
 import "./home.css";
 
@@ -50,8 +51,8 @@ class Home extends Component {
                     />
                     <Container className="Jumbotron-text">
                         <h1>
-                            <span className="Title-logo">{OWL_LOGO}</span>Overwatch
-                            League
+                            <span className="Title-logo">{OWL_LOGO}</span>
+                            Overwatch League
                         </h1>
                         <p className="lead Text-intro">
                             Hi I'm Adrian Luk. This is my rendition of the
@@ -70,12 +71,13 @@ class Home extends Component {
                             own personal touch on it but generally it is
                             modelled after the official site. Feel free to check
                             out some of my other projects at{" "}
-                            <a href="http://adrianluk.com">Adrianluk.com</a>
-                            . If you'd like to work together or have any
-                            questions, email me at{" "}
+                            <a href="http://adrianluk.com">Adrianluk.com</a>. If
+                            you'd like to work together or have any questions,
+                            email me at{" "}
                             <a href="mailto:aluk618@gmail.com">
                                 aluk618@gmail.com
-                            </a>.
+                            </a>
+                            .
                         </p>
                     </article>
                 </Container>
@@ -149,7 +151,7 @@ class Home extends Component {
                                 className="Article-image">
                                 <img
                                     className="img-fluid"
-                                    src="/images/players-profiles.jpg"
+                                    src={playersProfiles}
                                     alt="Overwatch League Players"
                                 />
                             </Col>
