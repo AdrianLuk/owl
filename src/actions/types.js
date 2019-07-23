@@ -11,3 +11,5 @@ export const MAP_SELECTED = "map_selected";
 export const FETCH_NEWS = "fetch_news";
 
 export const FETCH_VIDEOS = "fetch_videos";
+
+export const FETCH_PLAYERS = "fetch_players";

@@ -5,6 +5,7 @@ import ScheduleReducer from "./schedule-reducer";
 import MapsReducer from "./maps-reducer";
 import NewsReducer from "./news-reducer";
 import VideosReducer from "./videos-reducer";
+import PlayersReducer from "./players-reducer";
 
 const rootReducer = combineReducers({
     teams: TeamsReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     schedule: ScheduleReducer,
     maps: MapsReducer,
     news: NewsReducer,
-    videos: VideosReducer
+    videos: VideosReducer,
+    players: PlayersReducer
 });
 
 export default rootReducer;

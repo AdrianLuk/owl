@@ -7,7 +7,8 @@ import {
     FETCH_MAPS,
     MAP_SELECTED,
     FETCH_NEWS,
-    FETCH_VIDEOS
+    FETCH_VIDEOS,
+    FETCH_PLAYERS
 } from "./types";
 
 const apiUrl = "https://api.overwatchleague.com";
@@ -61,6 +62,14 @@ export function fetchVideos() {
     const request = axios.get(`${apiUrl}/playlist/owl-app-playlist`);
     return {
         type: FETCH_VIDEOS,
+        payload: request
+    };
+}
+
+export function fetchPlayers() {
+    const request = axios.get(`${apiUrl}/players`);
+    return {
+        type: FETCH_PLAYERS,
         payload: request
     };
 }

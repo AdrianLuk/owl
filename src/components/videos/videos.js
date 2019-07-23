@@ -5,9 +5,9 @@ import { bindActionCreators } from "redux";
 import MainHeader from "../common/headers/main-header";
 
 class Videos extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     componentDidMount() {
         this.props.fetchVideos();
         console.log(this.props);
@@ -25,7 +25,6 @@ class Videos extends Component {
 function mapStateToProps(state) {
     return {
         videos: state.videos
-        // selectedMap: state.selectedMap
     };
 }
 

@@ -4,8 +4,8 @@ import {
     ListGroupItemHeading,
     ListGroupItemText,
     Row,
-    Col,
-    Button
+    Col
+    // Button
 } from "reactstrap";
 import { FaClock } from "react-icons/fa";
 import moment from "moment";
